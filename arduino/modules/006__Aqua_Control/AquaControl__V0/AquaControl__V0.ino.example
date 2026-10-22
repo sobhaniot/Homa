@@ -1,0 +1,133 @@
+// This program use for control aquarium
+// we used cap worg for easy to use variable
+// g for global -- d for define --
+
+//for declare var D mean define, G mean global ,
+#define DEBUG true // flag to turn on/off debugging
+
+//FirebaseESP8266.h must be included before ESP8266WiFi.h
+//#include "FirebaseESP8266.h"
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+#include <EEPROM.h>
+#include <ArduinoOTA.h>
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
+#include <TimerCounter.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+StaticJsonDocument<200> Json;
+
+TimerCounter T, TMQTT, TNTP, TError;
+
+String G_SSID           = "";                                    //for read eeprom
+String G_PASSWORD       = "";                                //for read eeprom
+
+const char* G_mySSID     = "Aquarium";                   //for use in apwifi
+const char* G_passwordAP = "CHANGE_ME";           //for use in apwifi
+
+String G_mqtt_server     = "";
+
+#define D_FIREBASE_FCM_SERVER_KEY "CHANGE_ME"
+String G_FIREBASE_FCM_DEVICE_TOKEN_1 = "";
+String G_FIREBASE_FCM_DEVICE_TOKEN_2 = "";
+
+byte G_flagWhichTokenSave       = 0;
+
+//FirebaseData FBNotification;
+
+
+WiFiClient espClient;
+PubSubClient MQTTclient(espClient);
+
+
+ESP8266WebServer server(80);    // Create a webserver object that listens for HTTP request on port 80
+////////////////////////////////////////////////////////////////////////define & declare value
+#define D_PortMQTT           1883
+
+#define D_OTAHostName        "Aquarium"
+#define D_OTAPass            "nahbos"
+#define D_eepromBubbleStart  0
+#define D_eepromBubbleEnd    5
+#define D_eepromFilterStart  10
+#define D_eepromFilterEnd    15
+#define D_eepromBroker       20
+#define D_eepromFirstToken   50
+#define D_eepromSecondToken  250
+#define D_eepromFlagToken    450
+#define D_eepromSSID         455
+#define D_eepromPASSWORD     485
+
+#define Serial             if(DEBUG)Serial
+
+//************************************************// PINS OUT
+#define D_PIN_FILTER          14
+#define D_PIN_BUBBLE          16
+#define D_PIN_TEMPS           12
+
+//*************************************************/ PINS IN
+//
+
+uint16_t    G_BubbleStart             = 1100;
+uint16_t    G_BubbleEnd               = 1130;
+uint16_t    G_FilterStart             = 1130;
+uint16_t    G_FilterEnd               = 1200;
+float       G_TempAquarium            = 0;
+
+#if !DEBUG
+
+#else
+
+#endif
+
+const char *G_subscribeTopic          = "/eleknow.com/nahbos5672730/home/aquarium";        //subscribe topic
+const char *G_publishTopic            = "/eleknow.com/nahbos5672730/home/aquariumResult";  //publish topic
+byte        G_Flag_First_PlugIn       = 0;
+
+///////////////////////////////////////////////////////////////////////Program Setup Fuction
+void setup() {
+
+  // prepare GPIO's
+  pinMode(D_PIN_FILTER, OUTPUT);
+  pinMode(D_PIN_BUBBLE, OUTPUT);
+
+  digitalWrite(D_PIN_FILTER, LOW);
+  digitalWrite(D_PIN_BUBBLE, LOW);
+
+  Serial.begin(9600);
+  delay(50);
+
+
+  readEEPROM();
+  setUpDS18B20();
+  setupAPWifi();
+  setupWifi();
+  startServer();
+  setUpOTA();
+  mqttSetup();
+//  FirebaseSetup();
+
+  start_NTP_UDP();
+}
+
+//////////////////////////////////////////////////////////////////////////////Loop Function
+void loop() {
+  
+  server.handleClient();
+  ArduinoOTA.handle();
+
+  ////////mqtt connect section
+  MQTTConnecting();
+
+  uint16_t last_time = NTP_Handle();
+
+  AquariumDO(last_time);
+  
+  if (T.Wait(3600000)) {
+    readTemp();
+  }
+  
+}

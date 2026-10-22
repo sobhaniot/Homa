@@ -1,0 +1,160 @@
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+#include <FS.h>   // Include the SPIFFS library
+#include <EEPROM.h>
+#include <ArduinoOTA.h>
+#include <ESP8266FtpServer.h>
+#include <Wire.h>
+#include <ESP8266HTTPClient.h>
+
+String          _SSID           = "";                                  //for read eeprom
+String          _PASSWORD       = "";                              //for read eeprom
+const char*     ssid            = "";                              //for use in wifi login function
+const char*     password        = "";                          //for use in wifi login function
+const char*     mySSIDAP        = "SobhanPower";                   //for use in apwifi
+const char*     passwordAP      = "CHANGE_ME";         //for use in apwifi
+
+bool flagLastPowerStatus;
+bool flagSendDataToSite;
+bool flagBuzzerPinConfig        = false;
+bool flagWriteToEEPROM          = false;
+bool flagAlarm                  = false;
+
+ESP8266WebServer server(80);    // Create a webserver object that listens for HTTP request on port 80
+FtpServer ftpserver;
+////////////////////////////////////////////////////////////////////////define & declare value
+
+#define BuzzerPin                   1
+#define CheckPin                    3
+#define eepromSSID                  400
+#define eepromPass                  450
+#define eepromflagLastPowerStatus   390
+#define eepromflagSendDataToSite    380
+#define FTPUser                     "sobhan"
+#define FTPPass                     "nahbos"
+
+
+////////////////////////////////////////////////////////////////////////SetUp Function
+void startSPIFFS() { // Start the SPIFFS and list all contents
+  SPIFFS.begin();                             // Start the SPI Flash File System (SPIFFS)
+  Serial.println("SPIFFS started. Contents:");
+}
+
+void startServer() { // Start a HTTP server with a file read handler and an upload handler
+  server.onNotFound([]() {                              // If the client requests any URI
+    if (!handleFileRead(server.uri()))                  // send it if it exists
+      server.send(404, "text/plain", "404: Not Found"); // otherwise, respond with a 404 (Not Found) error
+  });
+
+  server.begin();                             // start the HTTP server
+  Serial.println("HTTP server started.");
+}
+
+void startFTP() {
+  ftpserver.begin(FTPUser, FTPPass);
+  Serial.println("FTP Start");
+}
+
+/////////////////////////////////////////////////////////////////////////Program Setup Fuction
+void setup() {
+  pinMode(CheckPin, INPUT_PULLUP);
+
+
+  Serial.begin(115200, SERIAL_8N1, SERIAL_TX_ONLY);
+  delay(50);
+
+  Wire.pins(0, 2);// yes, see text
+  Wire.begin(0, 2); // 0=sda, 2=scl
+
+  readEEPROM();
+  setupAPWifi();
+  setupWifi();
+  startFTP();
+  startSPIFFS();
+  startServer();
+  setUpOTA();
+
+}
+
+unsigned long previousTime = millis();
+
+//////////////////////////////////////////////////////////////////////////////Loop Function
+void loop() {
+  server.handleClient();
+  ArduinoOTA.handle();
+  ftpserver.handleFTP();
+  //   check connection to wifi
+
+  if (!digitalRead(CheckPin) && !flagLastPowerStatus && !flagAlarm) {
+
+    Serial.println("bargh raft");
+    printTime("برق رفت");
+    flagLastPowerStatus = true;
+    flagAlarm = true;
+
+  } else if (digitalRead(CheckPin) && flagLastPowerStatus && !flagAlarm) {
+
+    Serial.println("bargh amad");
+    printTime("برق آمد");
+    flagLastPowerStatus = false;
+    flagAlarm = true;
+  }
+
+  //Alarm section
+
+  if (flagAlarm) {
+    if (!flagBuzzerPinConfig) {
+
+      previousTime = millis();
+      Serial.println("serial ended");
+      delay(50);
+      Serial.end();
+      delay(50);
+      pinMode(BuzzerPin, OUTPUT);
+      digitalWrite(BuzzerPin, LOW);
+      flagBuzzerPinConfig = true;
+    }
+    unsigned long diff = millis() - previousTime;
+
+    if(diff > 20000 ) {
+      diff = 0;
+      previousTime = millis();
+    }
+    
+    if (diff > 2000) {
+      digitalWrite(BuzzerPin, HIGH);
+      Serial.begin(115200, SERIAL_8N1, SERIAL_TX_ONLY);
+      delay(50);
+      Serial.println("serial begin");
+
+      flagBuzzerPinConfig = false;
+      flagSendDataToSite = true;
+      flagWriteToEEPROM = true;
+      flagAlarm = false;
+    }
+  }
+
+  // write to eeprom
+  if (flagWriteToEEPROM) {
+    EEPROM.write(eepromflagLastPowerStatus, flagLastPowerStatus);
+    delay(5);
+    EEPROM.write(eepromflagSendDataToSite, flagSendDataToSite);
+    delay(5);
+    EEPROM.commit();
+    flagWriteToEEPROM = false;
+  }
+
+  // write to site section
+  if (WiFi.status() == WL_CONNECTED && flagSendDataToSite && millis() % 120000 == 0) {
+    if (sendPowerLostData()) {
+      flagSendDataToSite = false;
+      flagWriteToEEPROM = true;
+
+      fs::File g = SPIFFS.open("/info.txt", "w");                 // Open it
+      //      String headerInfoFile = "";
+      //      g.print(headerInfoFile);
+      g.close();
+    }
+  }
+
+}

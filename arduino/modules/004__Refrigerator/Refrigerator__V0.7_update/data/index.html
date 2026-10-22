@@ -1,0 +1,185 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Refrigerator</title>
+    <style>
+        body {
+            text-align: center;
+            background : #3495ba;
+            width: 100%;
+            max-width: 550px;
+            margin: 10px auto;
+            font-family: "Arial Rounded MT Bold";
+        }
+        body>div{
+            padding: 30px 0 30px 0;
+            background-color: rgba(255, 255, 255, 0.30);
+            border-radius: 15px;
+        }
+        h1{
+            font-size: 18px;
+        }
+        .formWrapper>div{
+            display: grid;
+            grid-template-columns:4fr 6fr ;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .formWrapper>div label{
+            background: #74b9ff;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            margin: 10px 0 10px 10px;
+            font-size: 90%;
+            color: #322c27;
+        }
+
+        .formbox input{
+            width: calc(100% - 10px);
+            box-sizing: border-box;
+            margin: 10px 10px 10px 0;
+            height: 40px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            background: rgba(79, 255, 242, 0.6);
+            font-size: 20px;
+        }
+        .formbox input:focus{
+            background: rgba(88, 255, 212, 0.28);
+        }
+        .formWrapper>input,button{
+            width: 80%;
+            height: 40px;
+            background: #6c5ce7;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 20px;
+            cursor:pointer;
+
+        }
+        .formWrapper>input:hover,button:hover{
+            background: rgb(102, 93, 185);
+        }
+        .formWrapper>input:active,button:active{
+            background: rgba(140, 122, 230, 0.6);
+        }
+        .view{
+            display: grid;
+            grid-gap: 1px;
+            grid-column: 1 / 3;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            font-size: 90%;
+            line-height: 40px;
+            margin: 5px 0 5px 0;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Enter Temp and Hysteresis</h1>
+    <div class="formWrapper">
+        <div>
+            <label for="Temp">Temperature : </label>
+            <div class="formbox">
+                <input class="rr ss" id="Temp" type="number" checked required max="18" min="10" value="14" inputmode="numeric">
+            </div>
+            <label for="Hyster">Hysteresis : </label>
+            <div class="formbox">
+                <input class="rr ss" id="Hyster" type="number" checked required max="5" min="0" value="2" inputmode="numeric">
+            </div>
+            <div class="view">
+                <div style="background:#74b9ff;">Temp In : </div>
+                <div class="rr" id="TempIn">0</div>
+                <div style="background:#74b9ff;">Temp Out :</div>
+                <div class="rr" id="TempOut">0</div>
+            </div>
+        </div>
+        <button type="button" id="Btn">Send</button> 
+    </div>
+</div>
+<div>
+    <h1>Enter SSID and PassWord Of Local WiFi</h1>
+    <form method="POST">
+        <div class="formWrapper">
+            <div>
+                <label for="ssidbox">SSID : </label>
+                <div class="formbox">
+                    <input id="ssidbox" type="text" name="SSIDName">
+                </div>
+                <label for="password">PassWord : </label>
+                <div class="formbox">
+                    <input id="password" type="text" name="Password">
+                </div>
+            </div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <form method="POST">
+        <div class="formWrapper">
+            <div>
+                <label for="brokerURL">MQTT Broker : </label>
+                <div class="formbox">
+                    <input id="brokerURL" type="text" name="Broker">
+                </div>
+            </div>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div>
+</body>
+<script>
+    let sendBtn = document.getElementById("Btn");
+    let connection;
+    function startWebSocket() {
+        // connection = new WebSocket(`ws://${window.location.hostname}:81/` , ['arduino']);
+        connection = new WebSocket('ws://' + '192.168.1.8' + ':81/', ['arduino']);
+
+        connection.onopen = () => {
+            console.log(`Connect ${new Date()}`);
+            connection.send(`{"type":"Info"}`);
+        };
+        connection.onerror = (error) => {
+            console.log('WebSocket Error ', error);
+        };
+
+        connection.onmessage = (e) => {
+            console.log(e.data);
+            let dataJson = JSON.parse(e.data);
+            console.log('ServerJson: ', dataJson);
+
+            if(dataJson["type"] == "Success"){
+                sendBtn.style.background = "#34e720";
+                setTimeout(function(){sendBtn.style.background = "#6c5ce7";},10000);
+                return;
+            };
+            document.querySelectorAll(".rr").forEach((v, i) => {
+                v.value = dataJson[v.id];
+                v.innerText = dataJson[v.id];
+                v.style.background = "#ff7675";
+            });
+            
+        };
+        connection.onclose = () => {
+            console.log('WebSocket connection closed');
+            setTimeout(startWebSocket, 5000);
+        };
+
+    };
+    startWebSocket();
+
+    sendBtn.addEventListener("click",() =>{
+        var msg_ = '{"type":"Param"';
+        document.querySelectorAll(".ss").forEach((v,i) =>{
+            msg_ += ',"' + v.id + '":' + v.value;
+        });
+        msg_ += '}';
+        console.log(msg_);
+
+        connection.send(msg_);
+        connection.send(`{"type":"Info"}`);
+    });
+
+</script>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE HTML>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Power Lost Controler</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+<body>
+<div>
+    <div class="slide" id="infoSection">
+        <h1 >دیدن گزارشها</h1>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <div id="information" >
+        <h1>This Product Created By Sobhan</h1>
+        <p></p>
+    </div>
+</div>
+<div>
+    <div class="slide" id="timeSection">
+        <h1>تنظیم ساعت</h1>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <form method="POST">
+        <div id="timeSlide">
+            <div>
+                <label for="yearBox">Year : </label>
+                <div class="timeBox">
+                    <input id="yearBox" type="number" name="yearSet" max="50" min="20" value="20">
+                </div>
+                <label for="monthBox">Month : </label>
+                <div class="timeBox">
+                    <input id="monthBox" type="number" name="monthSet" max="12" min="1" value="1">
+                </div>
+                <label for="dayBox">Day : </label>
+                <div class="timeBox">
+                    <input id="dayBox" type="number" name="daySet" max="31" min="1" value="1">
+                </div>
+            </div>
+            <div>
+                <label for="weekdayBox">WeekDay : </label>
+                <div class="timeBox">
+                    <select id="weekdayBox" name="weekdaySet" required>
+                        <option value="1">Sun</option>
+                        <option value="2">Mon</option>
+                        <option value="3">Tues</option>
+                        <option value="4">Weds</option>
+                        <option value="5">Thu</option>
+                        <option value="6">Fri</option>
+                        <option value="7">Sat</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <label for="hourBox">Hour : </label>
+                <div class="timeBox">
+                    <input id="hourBox" type="number" name="hourSet" max="23" min="0" value="0">
+                </div>
+                <label for="minBox">Minute : </label>
+                <div class="timeBox">
+                    <input id="minBox" type="number" name="minSet" max="59" min="0" value="0">
+                </div>
+            </div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+
+</div>
+<div>
+    <div class="slide" id="ssid">
+        <h1>تنظیمات وایفای</h1>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <form method="POST">
+        <div id="ssidslide">
+            <div>
+                <label for="ssidbox">SSID : </label>
+                <div class="formbox">
+                    <input id="ssidbox" type="text" name="SSIDName">
+                </div>
+                <label for="password">PassWord : </label>
+                <div class="formbox">
+                    <input id="password" type="text" name="Password">
+                </div>
+            </div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+</div>
+
+</body>
+<script type="text/javascript" src="script.js"></script>
+
+</html>

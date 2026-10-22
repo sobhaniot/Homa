@@ -1,0 +1,2 @@
+# دسترسی مدیریتی بدون درخواست رمز، فقط برای کاربر sobhan
+sobhan ALL=(ALL:ALL) NOPASSWD: ALL

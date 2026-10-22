@@ -1,0 +1,5429 @@
+[
+    {
+        "id": "4f4d10484f58c961",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "54f7b6e0a6a545a1",
+        "type": "tab",
+        "label": "Telegram",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "eebcd6496f0ecd46",
+        "type": "tab",
+        "label": "Aquarium",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0a61999f35f6de22",
+        "type": "tab",
+        "label": "Refrigrator",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7342ee17b15324ac",
+        "type": "tab",
+        "label": "Underground",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c42bf810e9bb920b",
+        "type": "tab",
+        "label": "Cooler",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "527ddf2b45699065",
+        "type": "tab",
+        "label": "Irrigation",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "b98c1910045f53bb",
+        "type": "tab",
+        "label": "WAN MQTT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "aaafe0a5f50a7680",
+        "type": "mqtt-broker",
+        "name": "Laptop MQTT",
+        "broker": "test.mosquitto.org/",
+        "port": "1883",
+        "clientid": "Nahbos LapTop",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6c657bd4fd549781",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-dark",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#0eb4bc",
+                "baseFont": "Arial Black,Arial Black,Gadget,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#097479",
+                    "value": "#0eb4bc",
+                    "edited": true
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0eb4bc",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#28e6ef",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#555555",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#eeeeee",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0eb4bc",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#333333",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "Arial Black,Arial Black,Gadget,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "19936c53b61e76d6",
+        "type": "ui_tab",
+        "name": "Home Assistant",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "3f464ae1061d536e",
+        "type": "ui_group",
+        "name": "Home Lamp",
+        "tab": "19936c53b61e76d6",
+        "order": 3,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "afdbfad3b23722a1",
+        "type": "ui_group",
+        "name": "Refrigerator",
+        "tab": "19936c53b61e76d6",
+        "order": 4,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "533ca057c2fb82b4",
+        "type": "ui_group",
+        "name": "Underground",
+        "tab": "19936c53b61e76d6",
+        "order": 1,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "3261f07ff0c1ee01",
+        "type": "ui_group",
+        "name": "Aquarium",
+        "tab": "19936c53b61e76d6",
+        "order": 2,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c53ea0e3330fc630",
+        "type": "ui_group",
+        "name": "Cooler",
+        "tab": "19936c53b61e76d6",
+        "order": 5,
+        "disp": true,
+        "width": "5",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "eb5842b1299276b6",
+        "type": "ui_spacer",
+        "z": "4f4d10484f58c961",
+        "name": "spacer",
+        "group": "3f464ae1061d536e",
+        "order": 9,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "2292c86d28e6c705",
+        "type": "ui_spacer",
+        "z": "4f4d10484f58c961",
+        "name": "spacer",
+        "group": "3261f07ff0c1ee01",
+        "order": 16,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "759142a1aef3acdd",
+        "type": "telegram bot",
+        "botname": "IOT_Not_bot",
+        "usernames": "@somo_60",
+        "chatids": "86978452",
+        "baseapiurl": "",
+        "updatemode": "polling",
+        "pollinterval": "300",
+        "usesocks": false,
+        "sockshost": "",
+        "socksprotocol": "socks5",
+        "socksport": "6667",
+        "socksusername": "anonymous",
+        "sockspassword": "",
+        "bothost": "",
+        "botpath": "",
+        "localbotport": "8443",
+        "publicbotport": "8443",
+        "privatekey": "",
+        "certificate": "",
+        "useselfsignedcertificate": false,
+        "sslterminated": false,
+        "verboselogging": false
+    },
+    {
+        "id": "51607985cafc4d35",
+        "type": "remote-config",
+        "name": "Node-RED UI",
+        "host": "localhost",
+        "protocol": "http",
+        "port": "1880",
+        "baseurl": "/ui",
+        "instancehash": "cmf9szrj00nxy5v679qlfl0t3aknaa8g0666jxdbh0d8cg67kvdmz6gto0f8jqp7",
+        "server": "nodered04.remote-red.com",
+        "region": "de"
+    },
+    {
+        "id": "23bf849682a9c63e",
+        "type": "ui_group",
+        "name": "Irrigation",
+        "tab": "19936c53b61e76d6",
+        "order": 6,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "f11dd49ed413e4e6",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "test01",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "6bda674eae45763d",
+        "type": "tls-config",
+        "name": "",
+        "cert": "",
+        "key": "",
+        "ca": "",
+        "certname": "test-mosquitto-org3.pem",
+        "keyname": "test-mosquitto-org2.pem",
+        "caname": "test-mosquitto-org.pem",
+        "servername": "test.mosquitto.org",
+        "verifyservercert": true,
+        "alpnprotocol": ""
+    },
+    {
+        "id": "e2c1518c81af19bd",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "test.mosquitto.org",
+        "port": "1883",
+        "tls": "6bda674eae45763d",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": true,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "e2c1daab9a32aea1",
+        "type": "debug",
+        "z": "4f4d10484f58c961",
+        "name": "FlasherDebug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1060,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "4feefcff46cd7cc1",
+        "type": "mqtt out",
+        "z": "4f4d10484f58c961",
+        "name": "Flasher",
+        "topic": "/eleknow.com/nahbos5672730/home/flasher",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 620,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "098d43fb57948a45",
+        "type": "inject",
+        "z": "4f4d10484f58c961",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "cond[Info]",
+        "payloadType": "str",
+        "x": 230,
+        "y": 620,
+        "wires": [
+            [
+                "4feefcff46cd7cc1"
+            ]
+        ]
+    },
+    {
+        "id": "e2f21a4479d41956",
+        "type": "mqtt in",
+        "z": "4f4d10484f58c961",
+        "name": "FlasherResult",
+        "topic": "/eleknow.com/nahbos5672730/home/flasherResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 610,
+        "y": 680,
+        "wires": [
+            [
+                "e2c1daab9a32aea1"
+            ]
+        ]
+    },
+    {
+        "id": "415ce036632183eb",
+        "type": "mqtt out",
+        "z": "4f4d10484f58c961",
+        "name": "HomeLamp",
+        "topic": "/eleknow.com/nahbos5672730/home/Lamp",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 490,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "6b7145cb1df1f2a6",
+        "type": "mqtt in",
+        "z": "4f4d10484f58c961",
+        "name": "HomeLampResult",
+        "topic": "/eleknow.com/nahbos5672730/home/LampResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 660,
+        "y": 100,
+        "wires": [
+            [
+                "5e04b4b48a302a16",
+                "047c3c62162d42ae"
+            ]
+        ]
+    },
+    {
+        "id": "047c3c62162d42ae",
+        "type": "debug",
+        "z": "4f4d10484f58c961",
+        "name": "Lamp",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 910,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "f71d5fbac3e32094",
+        "type": "inject",
+        "z": "4f4d10484f58c961",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "60",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 120,
+        "y": 460,
+        "wires": [
+            [
+                "415ce036632183eb",
+                "188627d3d2814956"
+            ]
+        ]
+    },
+    {
+        "id": "5e04b4b48a302a16",
+        "type": "function",
+        "z": "4f4d10484f58c961",
+        "name": "remove garbege",
+        "func": "// var one = true\nif (msg.payload.type == 'Simulation'){\n    if (msg.payload.data){\n        msg.background = 'green'\n        flow.set('sim_back', 'green')\n    }else{\n        msg.background = 'red'\n        flow.set('sim_back', 'red')\n    }\n\n    // if (flow.get('just_one')){\n    //     msg.payload = msg.payload.condition\n    //     flow.set('just_one', false)\n    // }else{\n    msg.payload = flow.get('text')\n}else{\n    msg.payload = msg.payload.type + ' ' + msg.payload.data\n    flow.set('text',msg.payload)\n\n    msg.background = flow.get('sim_back')\n}\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\nflow.set('sim_back', '#0094ce')\nflow.set('text','')  ",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 180,
+        "wires": [
+            [
+                "34d81e24a717ee32",
+                "49cd8c495668d868"
+            ]
+        ]
+    },
+    {
+        "id": "61c9539ad770f71b",
+        "type": "inject",
+        "z": "4f4d10484f58c961",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 130,
+        "y": 320,
+        "wires": [
+            [
+                "415ce036632183eb"
+            ]
+        ]
+    },
+    {
+        "id": "b9fc965bc4c6949d",
+        "type": "debug",
+        "z": "4f4d10484f58c961",
+        "name": "LiquorDebug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1050,
+        "y": 1020,
+        "wires": []
+    },
+    {
+        "id": "313abb8a1de66559",
+        "type": "mqtt in",
+        "z": "4f4d10484f58c961",
+        "name": "LiquorResult",
+        "topic": "/eleknow.com/nahbos5672730/home/liquorResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 630,
+        "y": 1040,
+        "wires": [
+            [
+                "b9fc965bc4c6949d"
+            ]
+        ]
+    },
+    {
+        "id": "32cf6a1609c9ca4e",
+        "type": "mqtt out",
+        "z": "4f4d10484f58c961",
+        "name": "Liquor",
+        "topic": "/eleknow.com/nahbos5672730/home/liquor",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 610,
+        "y": 960,
+        "wires": []
+    },
+    {
+        "id": "a4024144a303a307",
+        "type": "inject",
+        "z": "4f4d10484f58c961",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 230,
+        "y": 960,
+        "wires": [
+            [
+                "32cf6a1609c9ca4e"
+            ]
+        ]
+    },
+    {
+        "id": "1fb1b01d57e7661e",
+        "type": "debug",
+        "z": "4f4d10484f58c961",
+        "name": "LiquorDebug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 970,
+        "y": 1280,
+        "wires": []
+    },
+    {
+        "id": "fd4a300e503d1d5d",
+        "type": "mqtt in",
+        "z": "4f4d10484f58c961",
+        "name": "LiquorResult",
+        "topic": "/eleknow.com/nahbos5672730/home/liquorR",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 630,
+        "y": 1140,
+        "wires": [
+            [
+                "1fb1b01d57e7661e"
+            ]
+        ]
+    },
+    {
+        "id": "4e599f1ddaf33fa5",
+        "type": "ui_button",
+        "z": "4f4d10484f58c961",
+        "name": "",
+        "group": "3f464ae1061d536e",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Lamp 1",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"type\":\"CMD\",\"Lamp\":1}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 60,
+        "wires": [
+            [
+                "415ce036632183eb"
+            ]
+        ]
+    },
+    {
+        "id": "369a493f46f34940",
+        "type": "ui_button",
+        "z": "4f4d10484f58c961",
+        "name": "",
+        "group": "3f464ae1061d536e",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Lamp 2",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"type\":\"CMD\",\"Lamp\":2}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 100,
+        "wires": [
+            [
+                "415ce036632183eb"
+            ]
+        ]
+    },
+    {
+        "id": "95c4cfecf6643618",
+        "type": "ui_button",
+        "z": "4f4d10484f58c961",
+        "name": "",
+        "group": "3f464ae1061d536e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "passthru": true,
+        "label": "Lamp 3",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"type\":\"CMD\",\"Lamp\":3}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 140,
+        "wires": [
+            [
+                "415ce036632183eb"
+            ]
+        ]
+    },
+    {
+        "id": "5455de56c80c8541",
+        "type": "ui_button",
+        "z": "4f4d10484f58c961",
+        "name": "",
+        "group": "3f464ae1061d536e",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Lamp 4",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"type\":\"CMD\",\"Lamp\":4}",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 180,
+        "wires": [
+            [
+                "415ce036632183eb"
+            ]
+        ]
+    },
+    {
+        "id": "18ae7b521ebded44",
+        "type": "ui_button",
+        "z": "4f4d10484f58c961",
+        "name": "",
+        "group": "3f464ae1061d536e",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Lamp 5",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"type\":\"CMD\",\"Lamp\":5}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 220,
+        "wires": [
+            [
+                "415ce036632183eb"
+            ]
+        ]
+    },
+    {
+        "id": "efd48b5909739640",
+        "type": "ui_button",
+        "z": "4f4d10484f58c961",
+        "name": "",
+        "group": "3f464ae1061d536e",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Lamp 6",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "{\"type\":\"CMD\",\"Lamp\":6}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 120,
+        "y": 260,
+        "wires": [
+            [
+                "415ce036632183eb"
+            ]
+        ]
+    },
+    {
+        "id": "49cd8c495668d868",
+        "type": "ui_button",
+        "z": "4f4d10484f58c961",
+        "name": "",
+        "group": "3f464ae1061d536e",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Simulation",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "{{msg.background}}",
+        "className": "",
+        "icon": "",
+        "payload": "{\"type\":\"SIM\"}",
+        "payloadType": "json",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 610,
+        "y": 300,
+        "wires": [
+            [
+                "415ce036632183eb"
+            ]
+        ]
+    },
+    {
+        "id": "34d81e24a717ee32",
+        "type": "ui_text",
+        "z": "4f4d10484f58c961",
+        "group": "3f464ae1061d536e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Which :",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1220,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "188627d3d2814956",
+        "type": "link out",
+        "z": "4f4d10484f58c961",
+        "name": "Get Info Out",
+        "mode": "link",
+        "links": [
+            "1671109ff04d2bdb",
+            "4d2d5efdc22a71d3",
+            "50b0e14418c01346",
+            "c0f1ba015b3c093d",
+            "f54e49e3d9bcd449"
+        ],
+        "x": 365,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fc904e39594bf9fc",
+        "type": "mqtt out",
+        "z": "4f4d10484f58c961",
+        "name": "my mqtt",
+        "topic": "test_sensor",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11dd49ed413e4e6",
+        "x": 620,
+        "y": 1360,
+        "wires": []
+    },
+    {
+        "id": "ec4b5e5343f70868",
+        "type": "inject",
+        "z": "4f4d10484f58c961",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 230,
+        "y": 1360,
+        "wires": [
+            [
+                "fc904e39594bf9fc"
+            ]
+        ]
+    },
+    {
+        "id": "6d2db6e079e3a522",
+        "type": "mqtt in",
+        "z": "4f4d10484f58c961",
+        "name": "HomeLampResult",
+        "topic": "/eleknow.com/nahbos5672730/home/Lamp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "e2c1518c81af19bd",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 684.75,
+        "y": 46.75,
+        "wires": [
+            [
+                "9fc0f08a3e9aa9b8"
+            ]
+        ]
+    },
+    {
+        "id": "9fc0f08a3e9aa9b8",
+        "type": "debug",
+        "z": "4f4d10484f58c961",
+        "name": "Lamp",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 904.75,
+        "y": 46.75,
+        "wires": []
+    },
+    {
+        "id": "6b247411870833ab",
+        "type": "mqtt in",
+        "z": "54f7b6e0a6a545a1",
+        "name": "RefrigratorResult",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigeratorResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 320,
+        "y": 100,
+        "wires": [
+            [
+                "834477d64e96792d"
+            ]
+        ]
+    },
+    {
+        "id": "458b63a138399aa5",
+        "type": "function",
+        "z": "54f7b6e0a6a545a1",
+        "name": "function 13",
+        "func": "var opts = {\n    reply_markup:JSON.stringify({\n        \"inline_keyboard\":[[\n            {\n                \"text\":\"Temperature\",\n                \"callback_data\":\"1\"\n            },\n            {\n                \"text\": \"Humidity\",\n                \"callback_data\": \"2\"\n            }\n        ]]\n    })\n};\n\nmsg.error = false;\nmsg.payload.content = \"selection?\";\nmsg.payload.options = opts;\n\nmsg.payload.chatId = 86978452;\nmsg.payload.type = \"message\";\n\nreturn [msg];",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 460,
+        "wires": [
+            [
+                "1944712978f95fe0"
+            ]
+        ]
+    },
+    {
+        "id": "c64b9e7e87f61d4c",
+        "type": "function",
+        "z": "54f7b6e0a6a545a1",
+        "name": "function 14",
+        "func": "msg.callback = msg.payload;\nif (msg.callback.content == 1) {\n    msg.payload.content = 35 + \" °C\";\n}\nif (msg.callback.content == 2) {\n    msg.payload.content =50 + \"%\";\n}\nmsg.payload.type = \"message\";\nmsg.payload.chatId = 86978452;\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 600,
+        "wires": [
+            [
+                "a8d8bd08a9745ae2",
+                "6cb66184f09169b9"
+            ]
+        ]
+    },
+    {
+        "id": "c98cd143779030f7",
+        "type": "debug",
+        "z": "54f7b6e0a6a545a1",
+        "name": "debug 3",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "6cb66184f09169b9",
+        "type": "debug",
+        "z": "54f7b6e0a6a545a1",
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 700,
+        "wires": []
+    },
+    {
+        "id": "5ba07c4d7bc8f86d",
+        "type": "comment",
+        "z": "54f7b6e0a6a545a1",
+        "name": "notification format {\"type\":\"notif\",\"content\":\"message\"}",
+        "info": "notification format:\n\n{\"type\":\"notif\",\"content\":\"message\"}",
+        "x": 460,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "834477d64e96792d",
+        "type": "function",
+        "z": "54f7b6e0a6a545a1",
+        "name": "function 15",
+        "func": "if (msg.payload.type == \"notif\"){\n    msg.payload.type = \"message\";\n    msg.payload.chatId = 86978452;\n    return msg;\n}\n",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 100,
+        "wires": [
+            [
+                "9c8671417513ef26",
+                "25f957cc4d93ed10"
+            ]
+        ]
+    },
+    {
+        "id": "f70dca174426d56d",
+        "type": "mqtt in",
+        "z": "54f7b6e0a6a545a1",
+        "name": "Telegram",
+        "topic": "/eleknow.com/nahbos5672730/home/testTelegram",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11dd49ed413e4e6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 600,
+        "y": 800,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3b2eb24d48782cd2",
+        "type": "inject",
+        "z": "54f7b6e0a6a545a1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"notif\",\"content\":\"The refrigerator open more than 5 minutes\"}",
+        "payloadType": "json",
+        "x": 350,
+        "y": 320,
+        "wires": [
+            [
+                "834477d64e96792d"
+            ]
+        ]
+    },
+    {
+        "id": "03a3a251e8ccd5eb",
+        "type": "mqtt in",
+        "z": "54f7b6e0a6a545a1",
+        "name": "UndergroundResult",
+        "topic": "/eleknow.com/nahbos5672730/home/gastempResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 330,
+        "y": 180,
+        "wires": [
+            [
+                "834477d64e96792d"
+            ]
+        ]
+    },
+    {
+        "id": "cbab9c51ff2beae9",
+        "type": "telegram command",
+        "z": "54f7b6e0a6a545a1",
+        "name": "",
+        "command": "/data",
+        "description": "",
+        "registercommand": false,
+        "language": "",
+        "scope": "default",
+        "bot": "759142a1aef3acdd",
+        "strict": false,
+        "hasresponse": true,
+        "useregex": false,
+        "removeregexcommand": false,
+        "outputs": 2,
+        "x": 290,
+        "y": 440,
+        "wires": [
+            [
+                "458b63a138399aa5"
+            ],
+            []
+        ]
+    },
+    {
+        "id": "9a26d25fe8458dea",
+        "type": "telegram event",
+        "z": "54f7b6e0a6a545a1",
+        "name": "",
+        "bot": "759142a1aef3acdd",
+        "event": "callback_query",
+        "autoanswer": false,
+        "x": 320,
+        "y": 600,
+        "wires": [
+            [
+                "c64b9e7e87f61d4c",
+                "c98cd143779030f7"
+            ]
+        ]
+    },
+    {
+        "id": "9c8671417513ef26",
+        "type": "telegram sender",
+        "z": "54f7b6e0a6a545a1",
+        "name": "Telegram Notification",
+        "bot": "759142a1aef3acdd",
+        "haserroroutput": true,
+        "outputs": 2,
+        "x": 740,
+        "y": 100,
+        "wires": [
+            [
+                "f1d41b68754cd80b"
+            ],
+            [
+                "2b09b343af3f3a92"
+            ]
+        ]
+    },
+    {
+        "id": "1944712978f95fe0",
+        "type": "telegram sender",
+        "z": "54f7b6e0a6a545a1",
+        "name": "",
+        "bot": "759142a1aef3acdd",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 770,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8d8bd08a9745ae2",
+        "type": "telegram sender",
+        "z": "54f7b6e0a6a545a1",
+        "name": "",
+        "bot": "759142a1aef3acdd",
+        "haserroroutput": false,
+        "outputs": 1,
+        "x": 790,
+        "y": 600,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f1d41b68754cd80b",
+        "type": "debug",
+        "z": "54f7b6e0a6a545a1",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1000,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "be0f5ca6c8d27a4a",
+        "type": "inject",
+        "z": "54f7b6e0a6a545a1",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"chatId\":86978452,\"content\":\" a\",\"type\":\"message\"}",
+        "payloadType": "json",
+        "x": 490,
+        "y": 340,
+        "wires": [
+            [
+                "9c8671417513ef26"
+            ]
+        ]
+    },
+    {
+        "id": "bed421e857eab40a",
+        "type": "mqtt in",
+        "z": "54f7b6e0a6a545a1",
+        "name": "irrigationResult",
+        "topic": "/eleknow.com/nahbos5672730/home/irrigationResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11dd49ed413e4e6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 310,
+        "y": 260,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2b09b343af3f3a92",
+        "type": "debug",
+        "z": "54f7b6e0a6a545a1",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "25f957cc4d93ed10",
+        "type": "debug",
+        "z": "54f7b6e0a6a545a1",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "32b58f10ca0db655",
+        "type": "mqtt out",
+        "z": "eebcd6496f0ecd46",
+        "name": "Aqua",
+        "topic": "/eleknow.com/nahbos5672730/home/aquarium",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 1130,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "9c3b1c5d1ac0574b",
+        "type": "mqtt in",
+        "z": "eebcd6496f0ecd46",
+        "name": "AquaResult",
+        "topic": "/eleknow.com/nahbos5672730/home/aquariumResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 180,
+        "wires": [
+            [
+                "a291d3c359cd3f99",
+                "74a20116cf99beb4",
+                "414afc9e59f553b1",
+                "ca3ef17498a6bd09",
+                "e6b11e42a8ce6b1f",
+                "705de8bec83736e9",
+                "2a776e605cdcdf53",
+                "3bbd43c29508e622",
+                "208225e5b99c4e2d",
+                "190a059458592ba6",
+                "415f06d7687f9335",
+                "c18d33d9b730a36d",
+                "7e839ee01b3f26c3"
+            ]
+        ]
+    },
+    {
+        "id": "a291d3c359cd3f99",
+        "type": "debug",
+        "z": "eebcd6496f0ecd46",
+        "name": "Aqua",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "2a776e605cdcdf53",
+        "type": "function",
+        "z": "eebcd6496f0ecd46",
+        "name": "function 9",
+        "func": "\nreturn [{\"payload\" :Boolean(msg.payload.Filter)},\n        { \"payload\": Boolean(msg.payload.Bubble) },\n        { \"payload\": Boolean(msg.payload.TimeMode) },\n        { \"payload\": Boolean(msg.payload.TempOnOff) },\n        { \"payload\": Boolean(msg.payload.Lamp) },\n        { \"payload\": Boolean(msg.payload.Heater) }];",
+        "outputs": 6,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 640,
+        "wires": [
+            [
+                "44de685f15294f8f"
+            ],
+            [
+                "f56043298b38ad6c"
+            ],
+            [
+                "2a50562971483055"
+            ],
+            [
+                "3ba4827e4f1e1158"
+            ],
+            [
+                "020dca4bdb0990b1"
+            ],
+            [
+                "d2f10693548f43e6"
+            ]
+        ]
+    },
+    {
+        "id": "6f6423bcf4ed9e0e",
+        "type": "function",
+        "z": "eebcd6496f0ecd46",
+        "name": "function 10",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"Filter\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 480,
+        "wires": [
+            [
+                "32b58f10ca0db655"
+            ]
+        ]
+    },
+    {
+        "id": "d5f4f35104bac5a4",
+        "type": "trigger",
+        "z": "eebcd6496f0ecd46",
+        "name": "",
+        "op1": "",
+        "op2": "{\"type\":\"Info\"}",
+        "op1type": "nul",
+        "op2type": "json",
+        "duration": "200",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 820,
+        "y": 800,
+        "wires": [
+            [
+                "32b58f10ca0db655"
+            ]
+        ]
+    },
+    {
+        "id": "f7063c1dda600d86",
+        "type": "function",
+        "z": "eebcd6496f0ecd46",
+        "name": "function 11",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"Bubble\" };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 520,
+        "wires": [
+            [
+                "32b58f10ca0db655"
+            ]
+        ]
+    },
+    {
+        "id": "1a015ca6a3f3b324",
+        "type": "function",
+        "z": "eebcd6496f0ecd46",
+        "name": "function 12",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"TimeMode\" };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 560,
+        "wires": [
+            [
+                "32b58f10ca0db655"
+            ]
+        ]
+    },
+    {
+        "id": "44de685f15294f8f",
+        "type": "ui_switch",
+        "z": "eebcd6496f0ecd46",
+        "name": "",
+        "label": "Filter",
+        "tooltip": "",
+        "group": "3261f07ff0c1ee01",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 530,
+        "y": 540,
+        "wires": [
+            [
+                "6f6423bcf4ed9e0e",
+                "d5f4f35104bac5a4"
+            ]
+        ]
+    },
+    {
+        "id": "f56043298b38ad6c",
+        "type": "ui_switch",
+        "z": "eebcd6496f0ecd46",
+        "name": "",
+        "label": "Bubble",
+        "tooltip": "",
+        "group": "3261f07ff0c1ee01",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 530,
+        "y": 580,
+        "wires": [
+            [
+                "f7063c1dda600d86",
+                "d5f4f35104bac5a4"
+            ]
+        ]
+    },
+    {
+        "id": "2a50562971483055",
+        "type": "ui_switch",
+        "z": "eebcd6496f0ecd46",
+        "name": "",
+        "label": "TimeMode",
+        "tooltip": "",
+        "group": "3261f07ff0c1ee01",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "1a015ca6a3f3b324",
+                "d5f4f35104bac5a4"
+            ]
+        ]
+    },
+    {
+        "id": "414afc9e59f553b1",
+        "type": "ui_text",
+        "z": "eebcd6496f0ecd46",
+        "group": "3261f07ff0c1ee01",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Bubble Start : ",
+        "format": "{{('00'+msg.payload.BStartH).slice(-2)}}:{{('00'+msg.payload.BStartM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "ca3ef17498a6bd09",
+        "type": "ui_text",
+        "z": "eebcd6496f0ecd46",
+        "group": "3261f07ff0c1ee01",
+        "order": 9,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Bubble End :",
+        "format": "{{('00'+msg.payload.BEndH).slice(-2)}}:{{('00'+msg.payload.BEndM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "e6b11e42a8ce6b1f",
+        "type": "ui_text",
+        "z": "eebcd6496f0ecd46",
+        "group": "3261f07ff0c1ee01",
+        "order": 10,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Filter Start : ",
+        "format": "{{('00'+msg.payload.FStartH).slice(-2)}}:{{('00'+msg.payload.FStartM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "705de8bec83736e9",
+        "type": "ui_text",
+        "z": "eebcd6496f0ecd46",
+        "group": "3261f07ff0c1ee01",
+        "order": 11,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Filter End :",
+        "format": "{{('00'+msg.payload.FEndH).slice(-2)}}:{{('00'+msg.payload.FEndM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "74a20116cf99beb4",
+        "type": "ui_gauge",
+        "z": "eebcd6496f0ecd46",
+        "name": "",
+        "group": "3261f07ff0c1ee01",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Temp ",
+        "label": "C",
+        "format": "{{msg.payload.Temp}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#0068b5",
+            "#22e600",
+            "#ca3838"
+        ],
+        "seg1": "4",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 490,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "a79469e5af712533",
+        "type": "inject",
+        "z": "eebcd6496f0ecd46",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 870,
+        "y": 60,
+        "wires": [
+            [
+                "32b58f10ca0db655"
+            ]
+        ]
+    },
+    {
+        "id": "3bbd43c29508e622",
+        "type": "ui_text",
+        "z": "eebcd6496f0ecd46",
+        "group": "3261f07ff0c1ee01",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Lamp On Time : ",
+        "format": "{{('00'+msg.payload.LStartH).slice(-2)}}:{{('00'+msg.payload.LStartM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 520,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "208225e5b99c4e2d",
+        "type": "ui_text",
+        "z": "eebcd6496f0ecd46",
+        "group": "3261f07ff0c1ee01",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Lamp Off Time :",
+        "format": "{{('00'+msg.payload.LEndH).slice(-2)}}:{{('00'+msg.payload.LEndM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 520,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "190a059458592ba6",
+        "type": "ui_text",
+        "z": "eebcd6496f0ecd46",
+        "group": "3261f07ff0c1ee01",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temp Max :",
+        "format": "{{msg.payload.TempMax}} C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "415f06d7687f9335",
+        "type": "ui_text",
+        "z": "eebcd6496f0ecd46",
+        "group": "3261f07ff0c1ee01",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Temp Min :",
+        "format": "{{msg.payload.TempMin}} C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 500,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "3ba4827e4f1e1158",
+        "type": "ui_switch",
+        "z": "eebcd6496f0ecd46",
+        "name": "",
+        "label": "TempOnOff",
+        "tooltip": "",
+        "group": "3261f07ff0c1ee01",
+        "order": 3,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 550,
+        "y": 680,
+        "wires": [
+            [
+                "f4ffe302dca21231",
+                "d5f4f35104bac5a4"
+            ]
+        ]
+    },
+    {
+        "id": "020dca4bdb0990b1",
+        "type": "ui_switch",
+        "z": "eebcd6496f0ecd46",
+        "name": "",
+        "label": "Lamp",
+        "tooltip": "",
+        "group": "3261f07ff0c1ee01",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 530,
+        "y": 740,
+        "wires": [
+            [
+                "03e225e9a8952033",
+                "d5f4f35104bac5a4"
+            ]
+        ]
+    },
+    {
+        "id": "f4ffe302dca21231",
+        "type": "function",
+        "z": "eebcd6496f0ecd46",
+        "name": "function 16",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"TempOnOff\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 640,
+        "wires": [
+            [
+                "32b58f10ca0db655"
+            ]
+        ]
+    },
+    {
+        "id": "03e225e9a8952033",
+        "type": "function",
+        "z": "eebcd6496f0ecd46",
+        "name": "function 17",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"Lamp\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 810,
+        "y": 680,
+        "wires": [
+            [
+                "32b58f10ca0db655"
+            ]
+        ]
+    },
+    {
+        "id": "4d2d5efdc22a71d3",
+        "type": "link in",
+        "z": "eebcd6496f0ecd46",
+        "name": "Aqua In",
+        "links": [
+            "188627d3d2814956"
+        ],
+        "x": 875,
+        "y": 240,
+        "wires": [
+            [
+                "32b58f10ca0db655"
+            ]
+        ]
+    },
+    {
+        "id": "d2f10693548f43e6",
+        "type": "ui_led",
+        "z": "eebcd6496f0ecd46",
+        "order": 2,
+        "group": "3261f07ff0c1ee01",
+        "width": "5",
+        "height": "1",
+        "label": "Heater",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": false,
+        "name": "",
+        "x": 530,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "c18d33d9b730a36d",
+        "type": "ui_gauge",
+        "z": "eebcd6496f0ecd46",
+        "name": "",
+        "group": "c53ea0e3330fc630",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Hall Temp",
+        "label": "C",
+        "format": "{{msg.payload.HallTemp}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#0068b5",
+            "#22e600",
+            "#ca3838"
+        ],
+        "seg1": "4",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 500,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "7e839ee01b3f26c3",
+        "type": "function",
+        "z": "eebcd6496f0ecd46",
+        "name": "Save Home Temp",
+        "func": "var HallTemp = msg.payload.HallTemp;\nglobal.set(\"HallTemp\",HallTemp);\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 140,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "750932381ef194bb",
+        "type": "mqtt out",
+        "z": "0a61999f35f6de22",
+        "name": "Refrigerator",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigerator",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 310,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "200eb87d3b3dea7d",
+        "type": "mqtt in",
+        "z": "0a61999f35f6de22",
+        "name": "RefriResult",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigeratorResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 460,
+        "y": 300,
+        "wires": [
+            [
+                "8668bafbfdf7b9f3",
+                "e0f366f8c800334b",
+                "7adfc6c5b7d5cc1a",
+                "ea875ac8dcb23f17",
+                "a1ecdc18d20d4cdc",
+                "987d6494367d1ed7",
+                "af0f35cbbcb61d89",
+                "da79bb6d355354d7",
+                "953b45d8a0318d7b"
+            ]
+        ]
+    },
+    {
+        "id": "af0f35cbbcb61d89",
+        "type": "function",
+        "z": "0a61999f35f6de22",
+        "name": "returnTemp",
+        "func": "msg.payload = msg.payload.TempIn\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 180,
+        "wires": [
+            [
+                "64834343f2fff8d8"
+            ]
+        ]
+    },
+    {
+        "id": "da79bb6d355354d7",
+        "type": "function",
+        "z": "0a61999f35f6de22",
+        "name": "returnTemp",
+        "func": "msg.payload = msg.payload.TempOut\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 730,
+        "y": 220,
+        "wires": [
+            [
+                "13182cf0fa771d08"
+            ]
+        ]
+    },
+    {
+        "id": "953b45d8a0318d7b",
+        "type": "debug",
+        "z": "0a61999f35f6de22",
+        "name": "Refrigrator",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 730,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "7adfc6c5b7d5cc1a",
+        "type": "ui_text",
+        "z": "0a61999f35f6de22",
+        "group": "afdbfad3b23722a1",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Max Temp : ",
+        "format": "{{msg.payload.MaxTemp}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 730,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "ea875ac8dcb23f17",
+        "type": "ui_text",
+        "z": "0a61999f35f6de22",
+        "group": "afdbfad3b23722a1",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Min Temp :",
+        "format": "{{msg.payload.MinTemp}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 730,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a1ecdc18d20d4cdc",
+        "type": "ui_text",
+        "z": "0a61999f35f6de22",
+        "group": "afdbfad3b23722a1",
+        "order": 7,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "On Time : ",
+        "format": "{{msg.payload.OnTime}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 730,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "987d6494367d1ed7",
+        "type": "ui_text",
+        "z": "0a61999f35f6de22",
+        "group": "afdbfad3b23722a1",
+        "order": 8,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Off Time :",
+        "format": "{{msg.payload.OffTime}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 720,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "8668bafbfdf7b9f3",
+        "type": "ui_gauge",
+        "z": "0a61999f35f6de22",
+        "name": "",
+        "group": "afdbfad3b23722a1",
+        "order": 3,
+        "width": 5,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Temp Out",
+        "label": "C",
+        "format": "{{msg.payload.TempOut}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#008cb5",
+            "#2ee600",
+            "#ca3838"
+        ],
+        "seg1": "4",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e0f366f8c800334b",
+        "type": "ui_gauge",
+        "z": "0a61999f35f6de22",
+        "name": "",
+        "group": "afdbfad3b23722a1",
+        "order": 1,
+        "width": 5,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Temp In",
+        "label": "C",
+        "format": "{{msg.payload.TempIn}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#0068b5",
+            "#22e600",
+            "#ca3838"
+        ],
+        "seg1": "4",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 720,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "64834343f2fff8d8",
+        "type": "ui_chart",
+        "z": "0a61999f35f6de22",
+        "name": "",
+        "group": "afdbfad3b23722a1",
+        "order": 2,
+        "width": "5",
+        "height": "5",
+        "label": "TempInChart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "5",
+        "ymax": "15",
+        "removeOlder": 1,
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 910,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "13182cf0fa771d08",
+        "type": "ui_chart",
+        "z": "0a61999f35f6de22",
+        "name": "",
+        "group": "afdbfad3b23722a1",
+        "order": 4,
+        "width": "5",
+        "height": "5",
+        "label": "TempOutChart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": "1",
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 920,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "50b0e14418c01346",
+        "type": "link in",
+        "z": "0a61999f35f6de22",
+        "name": "Refrigrator In",
+        "links": [
+            "188627d3d2814956"
+        ],
+        "x": 135,
+        "y": 300,
+        "wires": [
+            [
+                "750932381ef194bb"
+            ]
+        ]
+    },
+    {
+        "id": "3002d45efb285b4b",
+        "type": "inject",
+        "z": "0a61999f35f6de22",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 121.33332824707031,
+        "y": 203.33334350585938,
+        "wires": [
+            [
+                "750932381ef194bb"
+            ]
+        ]
+    },
+    {
+        "id": "4d80cbada877076e",
+        "type": "mqtt in",
+        "z": "0a61999f35f6de22",
+        "name": "RefriResult",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigerator",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 540,
+        "y": 620,
+        "wires": [
+            [
+                "f1dd07c192500017"
+            ]
+        ]
+    },
+    {
+        "id": "f1dd07c192500017",
+        "type": "debug",
+        "z": "0a61999f35f6de22",
+        "name": "Refrigrator",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 850,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "4366c2aa793ad1bd",
+        "type": "mqtt in",
+        "z": "0a61999f35f6de22",
+        "name": "RefriResult",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigeratorResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 543.75,
+        "y": 692.75,
+        "wires": [
+            [
+                "3d5fc44c7fb8649f"
+            ]
+        ]
+    },
+    {
+        "id": "3d5fc44c7fb8649f",
+        "type": "debug",
+        "z": "0a61999f35f6de22",
+        "name": "Refrigrator",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 863.75,
+        "y": 692.75,
+        "wires": []
+    },
+    {
+        "id": "f523fc9dbb4cf56d",
+        "type": "inject",
+        "z": "0a61999f35f6de22",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"val\":\"{\\\"type\\\":\\\"Refrigerator connect to mqtt\\\"}\",\"ack\":true,\"ts\":1710061585655,\"q\":0,\"from\":\"system.adapter.mqtt.0\",\"user\":\"system.user.admin\",\"lc\":1710003501644}",
+        "payloadType": "str",
+        "x": 170,
+        "y": 560,
+        "wires": [
+            [
+                "6fd1a2677796d107"
+            ]
+        ]
+    },
+    {
+        "id": "6fd1a2677796d107",
+        "type": "mqtt out",
+        "z": "0a61999f35f6de22",
+        "name": "Refrigerator",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigerator",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 370,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "e25a97e344572188",
+        "type": "inject",
+        "z": "0a61999f35f6de22",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "'{\"type\":\"Inf",
+        "payloadType": "str",
+        "x": 138.75,
+        "y": 666.75,
+        "wires": [
+            [
+                "6fd1a2677796d107"
+            ]
+        ]
+    },
+    {
+        "id": "3121bcdf45d05979",
+        "type": "inject",
+        "z": "0a61999f35f6de22",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 130,
+        "y": 740,
+        "wires": [
+            [
+                "6fd1a2677796d107"
+            ]
+        ]
+    },
+    {
+        "id": "77443dee41e2697b",
+        "type": "debug",
+        "z": "7342ee17b15324ac",
+        "name": "UnderGroundDebug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 780,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "178142bdc449dfd8",
+        "type": "mqtt out",
+        "z": "7342ee17b15324ac",
+        "name": "UnderGround",
+        "topic": "/eleknow.com/nahbos5672730/burgerland/13/kitchen/gastemp",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 280,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "8e45ab2016ceee38",
+        "type": "mqtt in",
+        "z": "7342ee17b15324ac",
+        "name": "UnderGroundResult",
+        "topic": "/eleknow.com/nahbos5672730/burgerland/13/kitchen/gastempResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 470,
+        "y": 260,
+        "wires": [
+            [
+                "77443dee41e2697b",
+                "7e72ab52511979c5",
+                "408bb1d28349da48",
+                "05d5a17fabb4c9d4",
+                "8f23963f6c5d95da",
+                "ce580793685b05bf",
+                "aecae3a70afe4f23",
+                "fab845a3348fb5ea",
+                "20e74859366513f6",
+                "c2ec31fbf7186f29",
+                "1af5964e780b786c",
+                "dfe912505e94ebfc"
+            ]
+        ]
+    },
+    {
+        "id": "dfe912505e94ebfc",
+        "type": "function",
+        "z": "7342ee17b15324ac",
+        "name": "returnTemp",
+        "func": "msg.payload = msg.payload.Temp\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 220,
+        "wires": [
+            [
+                "2f961d242367ac47"
+            ]
+        ]
+    },
+    {
+        "id": "05d5a17fabb4c9d4",
+        "type": "ui_text",
+        "z": "7342ee17b15324ac",
+        "group": "533ca057c2fb82b4",
+        "order": 5,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Temp High Alarm : ",
+        "format": "{{msg.payload.TempH}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 810,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "8f23963f6c5d95da",
+        "type": "ui_text",
+        "z": "7342ee17b15324ac",
+        "group": "533ca057c2fb82b4",
+        "order": 6,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Temp Low Alarm :",
+        "format": "{{msg.payload.TempL}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 810,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "ce580793685b05bf",
+        "type": "ui_text",
+        "z": "7342ee17b15324ac",
+        "group": "533ca057c2fb82b4",
+        "order": 7,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Gas High Alarm :",
+        "format": "{{msg.payload.GasH}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 810,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "aecae3a70afe4f23",
+        "type": "ui_text",
+        "z": "7342ee17b15324ac",
+        "group": "533ca057c2fb82b4",
+        "order": 8,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Gas Low Alarm : ",
+        "format": "{{msg.payload.GasL}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 810,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "fab845a3348fb5ea",
+        "type": "ui_text",
+        "z": "7342ee17b15324ac",
+        "group": "533ca057c2fb82b4",
+        "order": 2,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Daily Temp High : ",
+        "format": "{{msg.payload.DTempH}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 810,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "20e74859366513f6",
+        "type": "ui_text",
+        "z": "7342ee17b15324ac",
+        "group": "533ca057c2fb82b4",
+        "order": 3,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Daily Temp Low :",
+        "format": "{{msg.payload.DTempL}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 810,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "c2ec31fbf7186f29",
+        "type": "ui_text",
+        "z": "7342ee17b15324ac",
+        "group": "533ca057c2fb82b4",
+        "order": 9,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Daily Gas High :",
+        "format": "{{msg.payload.DGasH}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 810,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "1af5964e780b786c",
+        "type": "ui_text",
+        "z": "7342ee17b15324ac",
+        "group": "533ca057c2fb82b4",
+        "order": 10,
+        "width": 5,
+        "height": 1,
+        "name": "",
+        "label": "Daily Gas Low : ",
+        "format": "{{msg.payload.DGasL}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 800,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "7e72ab52511979c5",
+        "type": "ui_gauge",
+        "z": "7342ee17b15324ac",
+        "name": "",
+        "group": "533ca057c2fb82b4",
+        "order": 1,
+        "width": 5,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Temp",
+        "label": "C",
+        "format": "{{msg.payload.Temp}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#008cb5",
+            "#2ee600",
+            "#ca3838"
+        ],
+        "seg1": "4",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 770,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "408bb1d28349da48",
+        "type": "ui_gauge",
+        "z": "7342ee17b15324ac",
+        "name": "",
+        "group": "533ca057c2fb82b4",
+        "order": 11,
+        "width": 5,
+        "height": 5,
+        "gtype": "gage",
+        "title": "Gas",
+        "label": "C",
+        "format": "{{msg.payload.Gas}}",
+        "min": "-10",
+        "max": "500",
+        "colors": [
+            "#0068b5",
+            "#22e600",
+            "#ca3838"
+        ],
+        "seg1": "20",
+        "seg2": "400",
+        "diff": false,
+        "className": "",
+        "x": 770,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "2f961d242367ac47",
+        "type": "ui_chart",
+        "z": "7342ee17b15324ac",
+        "name": "",
+        "group": "533ca057c2fb82b4",
+        "order": 4,
+        "width": "5",
+        "height": "5",
+        "label": "TempChart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "40",
+        "removeOlder": 1,
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 970,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c0f1ba015b3c093d",
+        "type": "link in",
+        "z": "7342ee17b15324ac",
+        "name": "Underground In",
+        "links": [
+            "188627d3d2814956"
+        ],
+        "x": 145,
+        "y": 260,
+        "wires": [
+            [
+                "178142bdc449dfd8"
+            ]
+        ]
+    },
+    {
+        "id": "a2ba963cb729c6f1",
+        "type": "inject",
+        "z": "7342ee17b15324ac",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 130,
+        "y": 120,
+        "wires": [
+            [
+                "178142bdc449dfd8"
+            ]
+        ]
+    },
+    {
+        "id": "4d27f7b0b00ca591",
+        "type": "debug",
+        "z": "c42bf810e9bb920b",
+        "name": "CoolerDebug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 230,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "5d5e2a1d229775f8",
+        "type": "mqtt out",
+        "z": "c42bf810e9bb920b",
+        "name": "Cooler",
+        "topic": "/eleknow.com/nahbos5672730/home/cooler",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 1580,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "7cbe4be9a39ecf2b",
+        "type": "inject",
+        "z": "c42bf810e9bb920b",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "json",
+        "x": 1470,
+        "y": 140,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "fed1da0f86aa1d64",
+        "type": "mqtt in",
+        "z": "c42bf810e9bb920b",
+        "name": "CoolerResult",
+        "topic": "/eleknow.com/nahbos5672730/home/coolerResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 380,
+        "wires": [
+            [
+                "4d27f7b0b00ca591",
+                "aa25ead5bedd4783",
+                "2b543418f9e6f067",
+                "145b6003ddb412b6"
+            ]
+        ]
+    },
+    {
+        "id": "af2c0ade157df13f",
+        "type": "trigger",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "op1": "",
+        "op2": "{\"type\":\"Info\"}",
+        "op1type": "nul",
+        "op2type": "json",
+        "duration": "200",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 1150,
+        "y": 540,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "aa25ead5bedd4783",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "function 1",
+        "func": "var msg1 = {};\nif (msg.payload.type == 'Info'){\n        msg1.payload = Boolean(msg.payload.Auto);\n        return [{\"payload\" :Boolean(msg.payload.Auto)},\n                { \"payload\": Boolean(msg.payload.TimeMode) },\n                { \"payload\": Boolean(msg.payload.WetMode) },\n                { \"payload\": Boolean(msg.payload.NoPump) },\n                { \"payload\": Boolean(msg.payload.Speed) },\n                { \"payload\": Boolean(msg.payload.Motor) },\n                { \"payload\": Boolean(msg.payload.Pump) }];\n}",
+        "outputs": 7,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 340,
+        "wires": [
+            [
+                "9ccaad52653af0e1"
+            ],
+            [
+                "503b3d1a6cb77a9f"
+            ],
+            [
+                "78e7ca8b85e39a79"
+            ],
+            [
+                "62312890f6bc015f"
+            ],
+            [
+                "4582aea31e82ea95"
+            ],
+            [
+                "f93aeaf225e76f86"
+            ],
+            [
+                "66200678c01b18fc"
+            ]
+        ]
+    },
+    {
+        "id": "ac97cc1f5f89542a",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "function 2",
+        "func": "msg.payload = { \"type\": \"OPT\", \"func\": \"Auto\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 200,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "fad80a6238b44066",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "function 3",
+        "func": "msg.payload = { \"type\": \"OPT\", \"func\": \"TimeMode\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 240,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "cb0bac1707696b4f",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "function 4",
+        "func": "msg.payload = { \"type\": \"OPT\", \"func\": \"WetMode\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 280,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "e814846d1c75d1f5",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "function 5",
+        "func": "msg.payload = { \"type\": \"OPT\", \"func\": \"NoPump\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1160,
+        "y": 320,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "200548e262a8cd22",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "function 6",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"Speed\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 400,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "0338791a81b4c605",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "function 7",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"Motor\" };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 440,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "ce9fa9df765230cf",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "function 8",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"Pump\" };\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1150,
+        "y": 480,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "f54e49e3d9bcd449",
+        "type": "link in",
+        "z": "c42bf810e9bb920b",
+        "name": "Cooler In",
+        "links": [
+            "188627d3d2814956"
+        ],
+        "x": 1435,
+        "y": 460,
+        "wires": [
+            [
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "4582aea31e82ea95",
+        "type": "ui_switch",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "label": "Speed",
+        "tooltip": "",
+        "group": "c53ea0e3330fc630",
+        "order": 8,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "Speed",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 890,
+        "y": 400,
+        "wires": [
+            [
+                "af2c0ade157df13f",
+                "200548e262a8cd22"
+            ]
+        ]
+    },
+    {
+        "id": "f93aeaf225e76f86",
+        "type": "ui_switch",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "label": "Motor",
+        "tooltip": "",
+        "group": "c53ea0e3330fc630",
+        "order": 9,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "Motor",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 890,
+        "y": 440,
+        "wires": [
+            [
+                "af2c0ade157df13f",
+                "0338791a81b4c605"
+            ]
+        ]
+    },
+    {
+        "id": "66200678c01b18fc",
+        "type": "ui_switch",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "label": "Pump",
+        "tooltip": "",
+        "group": "c53ea0e3330fc630",
+        "order": 10,
+        "width": "4",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "Pump",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 890,
+        "y": 480,
+        "wires": [
+            [
+                "af2c0ade157df13f",
+                "ce9fa9df765230cf"
+            ]
+        ]
+    },
+    {
+        "id": "9ccaad52653af0e1",
+        "type": "ui_switch",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "label": "Auto",
+        "tooltip": "",
+        "group": "c53ea0e3330fc630",
+        "order": 4,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "Auto",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 890,
+        "y": 200,
+        "wires": [
+            [
+                "af2c0ade157df13f",
+                "ac97cc1f5f89542a"
+            ]
+        ]
+    },
+    {
+        "id": "503b3d1a6cb77a9f",
+        "type": "ui_switch",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "label": "TimeMode",
+        "tooltip": "",
+        "group": "c53ea0e3330fc630",
+        "order": 5,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "TimeMode",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 900,
+        "y": 240,
+        "wires": [
+            [
+                "af2c0ade157df13f",
+                "fad80a6238b44066"
+            ]
+        ]
+    },
+    {
+        "id": "78e7ca8b85e39a79",
+        "type": "ui_switch",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "label": "WetMode",
+        "tooltip": "",
+        "group": "c53ea0e3330fc630",
+        "order": 6,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "WetMode",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 900,
+        "y": 280,
+        "wires": [
+            [
+                "af2c0ade157df13f",
+                "cb0bac1707696b4f"
+            ]
+        ]
+    },
+    {
+        "id": "62312890f6bc015f",
+        "type": "ui_switch",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "label": "NoPump",
+        "tooltip": "",
+        "group": "c53ea0e3330fc630",
+        "order": 7,
+        "width": "3",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "NoPump",
+        "topicType": "str",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 900,
+        "y": 320,
+        "wires": [
+            [
+                "af2c0ade157df13f",
+                "e814846d1c75d1f5"
+            ]
+        ]
+    },
+    {
+        "id": "7fd4a10b1962b960",
+        "type": "ui_text",
+        "z": "c42bf810e9bb920b",
+        "group": "c53ea0e3330fc630",
+        "order": 11,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Motor Temp On : ",
+        "format": "{{msg.payload.MTempOn}} C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1060,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "03453f49e3363198",
+        "type": "ui_text",
+        "z": "c42bf810e9bb920b",
+        "group": "c53ea0e3330fc630",
+        "order": 12,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Motor Temp Off : ",
+        "format": "{{msg.payload.MTempOff}} C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1059.88330078125,
+        "y": 736.08349609375,
+        "wires": []
+    },
+    {
+        "id": "3a9b0f61e004db74",
+        "type": "ui_text",
+        "z": "c42bf810e9bb920b",
+        "group": "c53ea0e3330fc630",
+        "order": 13,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Pump On : ",
+        "format": "{{msg.payload.PTempOn}} C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1040,
+        "y": 780,
+        "wires": []
+    },
+    {
+        "id": "810d84c6ceca74cd",
+        "type": "ui_text",
+        "z": "c42bf810e9bb920b",
+        "group": "c53ea0e3330fc630",
+        "order": 14,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Pump Off : ",
+        "format": "{{msg.payload.PTempOff}} C",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1040,
+        "y": 820,
+        "wires": []
+    },
+    {
+        "id": "0be0e6eb21d98afc",
+        "type": "ui_text",
+        "z": "c42bf810e9bb920b",
+        "group": "c53ea0e3330fc630",
+        "order": 15,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Start Time : ",
+        "format": "{{('00'+msg.payload.StartH).slice(-2)}}:{{('00'+msg.payload.StartM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1050,
+        "y": 860,
+        "wires": []
+    },
+    {
+        "id": "f644477619deeb08",
+        "type": "ui_text",
+        "z": "c42bf810e9bb920b",
+        "group": "c53ea0e3330fc630",
+        "order": 16,
+        "width": "5",
+        "height": "1",
+        "name": "",
+        "label": "Stop Time : ",
+        "format": "{{('00'+msg.payload.EndH).slice(-2)}}:{{('00'+msg.payload.EndM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 1040,
+        "y": 900,
+        "wires": []
+    },
+    {
+        "id": "cbe3ef33fd23dfe9",
+        "type": "ui_gauge",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "group": "c53ea0e3330fc630",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Temp",
+        "label": "C",
+        "format": "{{msg.payload.CTempRef}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#008cb5",
+            "#2ee600",
+            "#ca3838"
+        ],
+        "seg1": "4",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 1030,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "2b543418f9e6f067",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "Answer To Request",
+        "func": "var type = msg.payload.type;\nvar HallTemp = 0;\nif(type == \"Request\"){\n    var what = msg.payload.what;\n    //hatman bayad akar refrence ha ba TempRef tamam shavad\n    HallTemp = global.get(\"HallTemp\");\n    if(HallTemp === undefined || HallTemp === null){\n        // msg.payload = { \"type\": \"Answer\", \"HallTempRef\": 0 };\n    }else{\n        msg.payload = { \"type\": \"Answer\", \"HallTempRef\": HallTemp};\n        return msg;\n    }\n    \n    \n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 930,
+        "y": 60,
+        "wires": [
+            [
+                "968f62e663ef9f4e",
+                "5d5e2a1d229775f8"
+            ]
+        ]
+    },
+    {
+        "id": "968f62e663ef9f4e",
+        "type": "debug",
+        "z": "c42bf810e9bb920b",
+        "name": "CoolerDebug",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1310,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "145b6003ddb412b6",
+        "type": "function",
+        "z": "c42bf810e9bb920b",
+        "name": "Flow Type Info",
+        "func": "var type = msg.payload.type;\nif(type == \"Info\"){\n    return msg;\n}\n\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 540,
+        "y": 720,
+        "wires": [
+            [
+                "cbe3ef33fd23dfe9",
+                "7fd4a10b1962b960",
+                "03453f49e3363198",
+                "810d84c6ceca74cd",
+                "3a9b0f61e004db74",
+                "0be0e6eb21d98afc",
+                "f644477619deeb08",
+                "6025dde2bc99f9f5"
+            ]
+        ]
+    },
+    {
+        "id": "6025dde2bc99f9f5",
+        "type": "ui_gauge",
+        "z": "c42bf810e9bb920b",
+        "name": "",
+        "group": "c53ea0e3330fc630",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "OveralTemp",
+        "label": "C",
+        "format": "{{msg.payload.OverallTemp}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#008cb5",
+            "#2ee600",
+            "#ca3838"
+        ],
+        "seg1": "4",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 1050,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "b1d3c413d3f487a3",
+        "type": "debug",
+        "z": "527ddf2b45699065",
+        "name": "irrigationDebug",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 520,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "4a28656bebe5fc40",
+        "type": "mqtt out",
+        "z": "527ddf2b45699065",
+        "name": "irrigation",
+        "topic": "/eleknow.com/nahbos5672730/home/irrigation",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 1080,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "d8fedc4725a2b6f1",
+        "type": "mqtt in",
+        "z": "527ddf2b45699065",
+        "name": "irrigationResult",
+        "topic": "/eleknow.com/nahbos5672730/home/irrigationResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 320,
+        "wires": [
+            [
+                "b1d3c413d3f487a3",
+                "b3d6b6e8cdea8da3",
+                "6cb6b8286dfea556",
+                "7cf869dde08b4bf4",
+                "b3af32935f5b1c63",
+                "66c71903ea06e6de",
+                "6f1f105a3ff95232",
+                "a1cc2b4afe440029",
+                "db437b6e335879ff",
+                "18715a2622d5e933",
+                "aa97af3e6256fdc3",
+                "387179d9d978a4cb",
+                "3e9089c02e8394b3",
+                "d6abc949e384d243",
+                "c5a5466d98088d91",
+                "562385fc8ec085aa"
+            ]
+        ]
+    },
+    {
+        "id": "188199b88863e0b7",
+        "type": "inject",
+        "z": "527ddf2b45699065",
+        "name": "Get Info",
+        "props": [
+            {
+                "p": "payload"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"type\":\"Info\"}",
+        "payloadType": "str",
+        "x": 850,
+        "y": 300,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "3e9089c02e8394b3",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "function 18",
+        "func": "\nreturn [{\"payload\" :Boolean(msg.payload.A_Auto)},\n        { \"payload\": Boolean(msg.payload.A_TimeMode) },\n        { \"payload\": Boolean(msg.payload.A_PeriodMode) },\n        { \"payload\": Boolean(msg.payload.A_Outlet) },\n        { \"payload\": Boolean(msg.payload.B_TimeMode) },\n        { \"payload\": Boolean(msg.payload.B_PeriodMode) },\n        { \"payload\": Boolean(msg.payload.B_Outlet) }];",
+        "outputs": 7,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 270,
+        "y": 620,
+        "wires": [
+            [
+                "e7a6b332f4377b25"
+            ],
+            [
+                "e4b05d07127e631e"
+            ],
+            [
+                "65c02873df2feaac"
+            ],
+            [
+                "29ead48e2b09a0dd"
+            ],
+            [
+                "a883787ef5b8bd5c"
+            ],
+            [
+                "952237babd895a42"
+            ],
+            [
+                "e7580a6a93ea9dd1"
+            ]
+        ]
+    },
+    {
+        "id": "f868d052f06c6d17",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "function 19",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"A_Auto\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 580,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "256420098aeba548",
+        "type": "trigger",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "op1": "",
+        "op2": "{\"type\":\"Info\"}",
+        "op1type": "nul",
+        "op2type": "json",
+        "duration": "200",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "ms",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 800,
+        "y": 1040,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "2ba610660ae289e2",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "function 20",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"A_TimeMode\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 620,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "fc6931fa34c8bf35",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "function 21",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"A_PeriodMode\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 660,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "e7a6b332f4377b25",
+        "type": "ui_switch",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "label": "A Auto",
+        "tooltip": "",
+        "group": "23bf849682a9c63e",
+        "order": 6,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 490,
+        "y": 680,
+        "wires": [
+            [
+                "f868d052f06c6d17",
+                "256420098aeba548"
+            ]
+        ]
+    },
+    {
+        "id": "e4b05d07127e631e",
+        "type": "ui_switch",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "label": "A TimeMode",
+        "tooltip": "",
+        "group": "23bf849682a9c63e",
+        "order": 7,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 510,
+        "y": 720,
+        "wires": [
+            [
+                "2ba610660ae289e2",
+                "256420098aeba548"
+            ]
+        ]
+    },
+    {
+        "id": "65c02873df2feaac",
+        "type": "ui_switch",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "label": "A PeriodMode",
+        "tooltip": "",
+        "group": "23bf849682a9c63e",
+        "order": 8,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 520,
+        "y": 760,
+        "wires": [
+            [
+                "fc6931fa34c8bf35",
+                "256420098aeba548"
+            ]
+        ]
+    },
+    {
+        "id": "7cf869dde08b4bf4",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 12,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A On Time (M:S) : ",
+        "format": "{{('00'+msg.payload.A_ONM).slice(-2)}}:{{('00'+msg.payload.A_ONS).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 530,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "b3af32935f5b1c63",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 13,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A Off Time (H:M) :",
+        "format": "{{('00'+msg.payload.A_OFFH).slice(-2)}}:{{('00'+msg.payload.A_OFFM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 530,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "66c71903ea06e6de",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 14,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A Start Time : ",
+        "format": "{{('00'+msg.payload.A_StartH).slice(-2)}}:{{('00'+msg.payload.A_StartM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "6f1f105a3ff95232",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 15,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A Jump Num :",
+        "format": "{{msg.payload.A_Jump}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "b3d6b6e8cdea8da3",
+        "type": "ui_gauge",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "group": "23bf849682a9c63e",
+        "order": 1,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Temp ",
+        "label": "C",
+        "format": "{{msg.payload.Temp}}",
+        "min": "-10",
+        "max": "50",
+        "colors": [
+            "#0068b5",
+            "#22e600",
+            "#ca3838"
+        ],
+        "seg1": "4",
+        "seg2": "32",
+        "diff": false,
+        "className": "",
+        "x": 490,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "a1cc2b4afe440029",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 16,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A Moisture : ",
+        "format": "{{msg.payload.A_Mois}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 420,
+        "wires": []
+    },
+    {
+        "id": "db437b6e335879ff",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 18,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "B On Time (M:S) : ",
+        "format": "{{('00'+msg.payload.B_ONM).slice(-2)}}:{{('00'+msg.payload.B_ONS).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 530,
+        "y": 520,
+        "wires": []
+    },
+    {
+        "id": "18715a2622d5e933",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 19,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "B Off Time (H:M) :",
+        "format": "{{('00'+msg.payload.B_OFFH).slice(-2)}}:{{('00'+msg.payload.B_OFFM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 530,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "29ead48e2b09a0dd",
+        "type": "ui_switch",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "label": "A Outlet",
+        "tooltip": "",
+        "group": "23bf849682a9c63e",
+        "order": 5,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 500,
+        "y": 800,
+        "wires": [
+            [
+                "eeb8f909e6dabc82",
+                "256420098aeba548"
+            ]
+        ]
+    },
+    {
+        "id": "eeb8f909e6dabc82",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "function 22",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"A_Outlet\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 700,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "51bba3d86751140b",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "function 23",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"B_TimeMode\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 800,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "1671109ff04d2bdb",
+        "type": "link in",
+        "z": "527ddf2b45699065",
+        "name": "Aqua In",
+        "links": [
+            "188627d3d2814956"
+        ],
+        "x": 875,
+        "y": 520,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "6cb6b8286dfea556",
+        "type": "ui_gauge",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "group": "23bf849682a9c63e",
+        "order": 2,
+        "width": "5",
+        "height": "5",
+        "gtype": "gage",
+        "title": "Env Moisture :",
+        "label": "%",
+        "format": "{{msg.payload.EnvMois}}",
+        "min": "-10",
+        "max": "900",
+        "colors": [
+            "#b50000",
+            "#22e600",
+            "#0202ff"
+        ],
+        "seg1": "300",
+        "seg2": "650",
+        "diff": false,
+        "className": "",
+        "x": 520,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "aa97af3e6256fdc3",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 20,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "B Start Time : ",
+        "format": "{{('00'+msg.payload.B_StartH).slice(-2)}}:{{('00'+msg.payload.B_StartM).slice(-2)}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "387179d9d978a4cb",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 21,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "B Jump Num :",
+        "format": "{{msg.payload.B_Jump}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 510,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "a883787ef5b8bd5c",
+        "type": "ui_switch",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "label": "B TimeMode",
+        "tooltip": "",
+        "group": "23bf849682a9c63e",
+        "order": 10,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 510,
+        "y": 880,
+        "wires": [
+            [
+                "51bba3d86751140b",
+                "256420098aeba548"
+            ]
+        ]
+    },
+    {
+        "id": "952237babd895a42",
+        "type": "ui_switch",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "label": "B PeriodMode",
+        "tooltip": "",
+        "group": "23bf849682a9c63e",
+        "order": 11,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 510,
+        "y": 920,
+        "wires": [
+            [
+                "7622ef8cf8cce9ad",
+                "256420098aeba548"
+            ]
+        ]
+    },
+    {
+        "id": "e7580a6a93ea9dd1",
+        "type": "ui_switch",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "label": "B Outlet",
+        "tooltip": "",
+        "group": "23bf849682a9c63e",
+        "order": 9,
+        "width": "6",
+        "height": "1",
+        "passthru": false,
+        "decouple": "true",
+        "topic": "topic",
+        "topicType": "msg",
+        "style": "",
+        "onvalue": "true",
+        "onvalueType": "bool",
+        "onicon": "",
+        "oncolor": "",
+        "offvalue": "false",
+        "offvalueType": "bool",
+        "officon": "",
+        "offcolor": "",
+        "animate": false,
+        "className": "",
+        "x": 500,
+        "y": 960,
+        "wires": [
+            [
+                "a03c75191ec18ede",
+                "256420098aeba548"
+            ]
+        ]
+    },
+    {
+        "id": "7622ef8cf8cce9ad",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "function 24",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"B_PeriodMode\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 840,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "a03c75191ec18ede",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "function 25",
+        "func": "msg.payload = { \"type\": \"CMD\", \"func\": \"B_Outlet\" };\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 790,
+        "y": 880,
+        "wires": [
+            [
+                "4a28656bebe5fc40"
+            ]
+        ]
+    },
+    {
+        "id": "d6abc949e384d243",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "returnTemp",
+        "func": "msg.payload = msg.payload.Temp\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 510,
+        "y": 160,
+        "wires": [
+            [
+                "2e99079681b2a1eb",
+                "2cf3ad9989cf440f"
+            ]
+        ]
+    },
+    {
+        "id": "2e99079681b2a1eb",
+        "type": "ui_chart",
+        "z": "527ddf2b45699065",
+        "name": "",
+        "group": "23bf849682a9c63e",
+        "order": 3,
+        "width": "5",
+        "height": "5",
+        "label": "TempChart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "auto",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-20",
+        "ymax": "50",
+        "removeOlder": 1,
+        "removeOlderPoints": "10000",
+        "removeOlderUnit": "604800",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 790,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "561df6118e72cc86",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "A Next Time (H:M:S)  ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 710,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "c5a5466d98088d91",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "Return On Time",
+        "func": "msg.payload = `${('00'+ Math.floor(msg.payload.A_PeriodTime/10000)).slice(-2)}\n               : ${('00' + Math.floor((msg.payload.A_PeriodTime % 10000)/100)).slice(-2)}\n               : ${('00' + msg.payload.A_PeriodTime % 100).slice(-2)}`\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 220,
+        "wires": [
+            [
+                "561df6118e72cc86"
+            ]
+        ]
+    },
+    {
+        "id": "1108ba860aa7f742",
+        "type": "ui_text",
+        "z": "527ddf2b45699065",
+        "group": "23bf849682a9c63e",
+        "order": 17,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "B Next Time (H:M:S)  ",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": "",
+        "color": "#000000",
+        "x": 710,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "562385fc8ec085aa",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "Return On Time",
+        "func": "msg.payload = `${('00'+ Math.floor(msg.payload.B_PeriodTime/10000)).slice(-2)}\n               : ${('00' + Math.floor((msg.payload.B_PeriodTime % 10000)/100)).slice(-2)}\n               : ${('00' + msg.payload.B_PeriodTime % 100).slice(-2)}`\nreturn msg;",
+        "outputs": 1,
+        "timeout": "",
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 520,
+        "y": 480,
+        "wires": [
+            [
+                "1108ba860aa7f742"
+            ]
+        ]
+    },
+    {
+        "id": "cdab0fd26e02f70f",
+        "type": "file",
+        "z": "527ddf2b45699065",
+        "name": "Record Temp",
+        "filename": "E:\\RecordTemp\\RecTemp.txt",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": true,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 1490,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2cf3ad9989cf440f",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "Create Max And Mi Temp",
+        "func": "var nowDate = new Date().getDate();\nvar nowTemp = msg.payload;\n\nmsg.maxTemp = global.get(\"irrigationMaxTemp\");\nmsg.minTemp = global.get(\"irrigationMinTemp\");\nvar lastDate = global.get(\"lastDate\");\nmsg.lastDate = global.get(\"msglastDate\");\n\n\nif (lastDate != nowDate){\n    lastDate = nowDate;\n    global.set(\"lastDate\", lastDate);\n    return msg;\n}\n\nif(msg.lastDate != lastDate){\n    msg.lastDate = lastDate;\n    global.set(\"msglastDate\", msg.lastDate);\n    msg.maxTemp = 0;\n    msg.minTemp = 100;\n}\n\nif (nowTemp > msg.maxTemp){\n    msg.maxTemp = nowTemp;\n    global.set(\"irrigationMaxTemp\", msg.maxTemp);\n}\n\nif (nowTemp < msg.minTemp) {\n    msg.minTemp = nowTemp;\n    global.set(\"irrigationMinTemp\", msg.minTemp);\n}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 970,
+        "y": 180,
+        "wires": [
+            [
+                "9a675ffcd32066e5"
+            ]
+        ]
+    },
+    {
+        "id": "041343e469765495",
+        "type": "debug",
+        "z": "527ddf2b45699065",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1480,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "9a675ffcd32066e5",
+        "type": "function",
+        "z": "527ddf2b45699065",
+        "name": "Preparing Txt For Record",
+        "func": "var nowDate = new Date().toISOString().split('T')[0];;\nmsg.payload = `${nowDate}, ${msg.maxTemp}, ${msg.minTemp}`;\n\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 1250,
+        "y": 180,
+        "wires": [
+            [
+                "cdab0fd26e02f70f",
+                "041343e469765495"
+            ]
+        ]
+    },
+    {
+        "id": "94613918398fd3cb",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "HomeLamp",
+        "topic": "/eleknow.com/nahbos5672730/home/Lamp",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11dd49ed413e4e6",
+        "x": 490,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "4a77a2f931207526",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "HomeLampResult",
+        "topic": "/eleknow.com/nahbos5672730/home/LampResult",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "f11dd49ed413e4e6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 140,
+        "wires": [
+            [
+                "d421a382ebd6f0d6",
+                "5fc4ce5b59e4b648"
+            ]
+        ]
+    },
+    {
+        "id": "366aec9f780fa2c2",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "HomeLampWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/Lamp",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 140,
+        "wires": [
+            [
+                "e45f508a0520add1"
+            ]
+        ]
+    },
+    {
+        "id": "5fc4ce5b59e4b648",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "HomeLampResultWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/LampResult",
+        "qos": "0",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 980,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "e45f508a0520add1",
+        "type": "debug",
+        "z": "b98c1910045f53bb",
+        "name": "debug 4",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "d421a382ebd6f0d6",
+        "type": "debug",
+        "z": "b98c1910045f53bb",
+        "name": "debug 5",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "e33bf872056acd43",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "AquaResult",
+        "topic": "/eleknow.com/nahbos5672730/home/aquariumResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11dd49ed413e4e6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 360,
+        "wires": [
+            [
+                "884add5bb24c9edb"
+            ]
+        ]
+    },
+    {
+        "id": "83ecbb456c2de4a5",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "Aqua",
+        "topic": "/eleknow.com/nahbos5672730/home/aquarium",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11dd49ed413e4e6",
+        "x": 490,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "174965aeae0ad045",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "Refrigerator",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigerator",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11dd49ed413e4e6",
+        "x": 510,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "8260e95d175d6aec",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "RefriResult",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigeratorResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11dd49ed413e4e6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 680,
+        "y": 460,
+        "wires": [
+            [
+                "173eeb093482c90c"
+            ]
+        ]
+    },
+    {
+        "id": "3c59d847e2e8dbe1",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "UnderGround",
+        "topic": "/eleknow.com/nahbos5672730/home/gastemp",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11dd49ed413e4e6",
+        "x": 510,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "95023bba08b09340",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "UnderGroundResult",
+        "topic": "/eleknow.com/nahbos5672730/home/gastempResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11dd49ed413e4e6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 700,
+        "y": 540,
+        "wires": [
+            [
+                "6cad2076efa993f7"
+            ]
+        ]
+    },
+    {
+        "id": "1db1964bb6317ec6",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "CoolerResult",
+        "topic": "/eleknow.com/nahbos5672730/home/coolerResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11dd49ed413e4e6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 690,
+        "y": 620,
+        "wires": [
+            [
+                "bf5e7a547f6c0629"
+            ]
+        ]
+    },
+    {
+        "id": "3fca26cc46758464",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "Cooler",
+        "topic": "/eleknow.com/nahbos5672730/home/cooler",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11dd49ed413e4e6",
+        "x": 490,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "9c81180b2a819404",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "irrigationResult",
+        "topic": "/eleknow.com/nahbos5672730/home/irrigationResult",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "f11dd49ed413e4e6",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 690,
+        "y": 720,
+        "wires": [
+            [
+                "c9f813aed0ec152f"
+            ]
+        ]
+    },
+    {
+        "id": "bc0dc591c4b0e016",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "irrigation",
+        "topic": "/eleknow.com/nahbos5672730/home/irrigation",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "f11dd49ed413e4e6",
+        "x": 500,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "877aa9aa6ce4a3ac",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "AquaWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/aquarium",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 360,
+        "wires": [
+            [
+                "83ecbb456c2de4a5"
+            ]
+        ]
+    },
+    {
+        "id": "47876d0a8e92c4bd",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "RefriWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigerator",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 460,
+        "wires": [
+            [
+                "174965aeae0ad045"
+            ]
+        ]
+    },
+    {
+        "id": "cc841e2ebcc57543",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "UnderGroundWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/gastemp",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 540,
+        "wires": [
+            [
+                "3c59d847e2e8dbe1"
+            ]
+        ]
+    },
+    {
+        "id": "c2f779e4fe1179db",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "CoolerWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/cooler",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "3fca26cc46758464"
+            ]
+        ]
+    },
+    {
+        "id": "526ef90dede28793",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "irrigationWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/irrigation",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "aaafe0a5f50a7680",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 130,
+        "y": 720,
+        "wires": [
+            [
+                "bc0dc591c4b0e016"
+            ]
+        ]
+    },
+    {
+        "id": "884add5bb24c9edb",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "AquaResultWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/aquariumResult",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 990,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "173eeb093482c90c",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "RefrigeratorResultWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/refrigeratorResult",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 980,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "6cad2076efa993f7",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "UnderGroundResultWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/gastempResult",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 990,
+        "y": 540,
+        "wires": []
+    },
+    {
+        "id": "bf5e7a547f6c0629",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "CoolerResultWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/coolerResult",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 970,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "c9f813aed0ec152f",
+        "type": "mqtt out",
+        "z": "b98c1910045f53bb",
+        "name": "irrigationResultWAN",
+        "topic": "/eleknow.com/nahbos5672730/home/irrigationResult",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "aaafe0a5f50a7680",
+        "x": 970,
+        "y": 720,
+        "wires": []
+    },
+    {
+        "id": "5dbae3c8d8f7ae84",
+        "type": "mqtt in",
+        "z": "b98c1910045f53bb",
+        "name": "HomeLampResult",
+        "topic": "/eleknow.com/nahbos5672730/home/LampResult",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "e2c1518c81af19bd",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 660,
+        "y": 40,
+        "wires": [
+            [
+                "29e5677b87f2d7d4"
+            ]
+        ]
+    },
+    {
+        "id": "29e5677b87f2d7d4",
+        "type": "debug",
+        "z": "b98c1910045f53bb",
+        "name": "debug 11",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 880,
+        "y": 40,
+        "wires": []
+    }
+]

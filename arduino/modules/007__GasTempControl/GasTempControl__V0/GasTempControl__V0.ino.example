@@ -1,0 +1,150 @@
+// This program use for control aquarium
+// we used cap worg for easy to use variable
+// g for global -- d for define --
+
+//for declare var D mean define, G mean global ,
+#define DEBUG true // flag to turn on/off debugging
+
+//FirebaseESP8266.h must be included before ESP8266WiFi.h
+#include <ESP8266WiFi.h>
+#include <FirebaseESP8266.h>
+#include <ESP8266WebServer.h>
+#include <EEPROM.h>
+#include <ArduinoOTA.h>
+#include <PubSubClient.h>
+#include <ArduinoJson.h>
+#include <TimerCounter.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
+#include <OneWire.h>
+#include <DallasTemperature.h>
+#include <ESP8266HTTPClient.h>
+#include <WiFiClientSecure.h>
+
+StaticJsonDocument<150> Json;
+
+TimerCounter T, TF, TMQTT, TNTP, Tdaily;
+
+String G_SSID           = "";                                    //for read eeprom
+String G_PASSWORD       = "";                                //for read eeprom
+
+const char* G_mySSID     = "GasTemp";                   //for use in apwifi
+const char* G_passwordAP = "CHANGE_ME";           //for use in apwifi
+
+String G_mqtt_server     = "";
+
+#define D_FIREBASE_FCM_SERVER_KEY "CHANGE_ME"
+String G_FIREBASE_FCM_DEVICE_TOKEN_1 = "";
+//String G_FIREBASE_FCM_DEVICE_TOKEN_test = "CHANGE_ME";
+String G_FIREBASE_FCM_DEVICE_TOKEN_2 = "";
+
+byte G_flagWhichTokenSave       = 0;
+
+FirebaseData FBNotification;
+
+
+WiFiClient espClient;
+PubSubClient MQTTclient(espClient);
+
+ESP8266WebServer server(80);    // Create a webserver object that listens for HTTP request on port 80
+////////////////////////////////////////////////////////////////////////define & declare value
+#define D_PortMQTT               1883
+
+#define D_OTAHostName                "GasTemp"
+#define D_OTAPass                    "nahbos"
+#define D_eepromTempH                0
+#define D_eepromTempL                5
+#define D_eepromGasH                 10
+#define D_eepromGasL                 15
+#define D_eepromBroker               20
+#define D_eepromFirstToken           50
+#define D_eepromSecondToken          250
+#define D_eepromFlagToken            450
+#define D_eepromSSID                 455
+#define D_eepromPASSWORD             485
+#define D_eepromDailyTempHigh        515
+#define D_eepromDailyTempLow         525
+#define D_eepromDailyGasHigh         535
+#define D_eepromDailyGasLow          540
+#define D_eepromHighLowTempFlag      545
+#define D_eepromHighLowGasFlag       550
+
+
+#define Serial             if(DEBUG)Serial
+
+//************************************************// PINS OUT
+#define D_PIN_Gas             A0
+#define D_PIN_TEMP            14
+
+//*************************************************/ PINS IN
+//
+
+int     G_TempH                   = 30;
+int     G_TempL                   = 15;
+int     G_GasH                    = 100;
+int     G_GasL                    = 0;
+float   G_daily_temp_high         = 0;
+float   G_daily_temp_low          = 100;
+int     G_daily_gas_high          = 0;
+int     G_daily_gas_low           = 1024;
+
+bool    G_tooHighLowTempFlag      = false;
+bool    G_tooHighLowGasFlag       = false;
+bool    G_dailyReportFlag         = false;
+
+#if !DEBUG
+
+#else
+
+#endif
+
+const char *G_subscribeTopic          = "/eleknow.com/nahbos5672730/home/gastemp";        //subscribe topic
+const char *G_publishTopic            = "/eleknow.com/nahbos5672730/home/gastempResult";  //publish topic
+const char *G_NotificationTopic       = "/eleknow.com/nahbos5672730/home/gastempResultNot";  //publish topic for notification in mobile
+
+///////////////////////////////////////////////////////////////////////Program Setup Fuction
+void setup() {
+
+  // prepare GPIO's
+  pinMode(D_PIN_Gas, INPUT);
+  pinMode(D_PIN_TEMP, INPUT);
+
+  Serial.begin(9600);
+  delay(50);
+
+
+  readEEPROM();
+  setUpDS18B20();
+  setupAPWifi();
+  setupWifi();
+  startServer();
+  setUpOTA();
+  mqttSetup();
+  FirebaseSetup();
+
+  start_NTP_UDP();
+}
+
+//////////////////////////////////////////////////////////////////////////////Loop Function
+void loop() {
+
+  server.handleClient();
+  ArduinoOTA.handle();
+
+  ////////mqtt connect section
+  MQTTConnecting();
+
+  uint16_t last_time = NTP_Handle();
+
+  if (T.Wait(30000)) {
+    recordDailyGasTemp(last_time);
+    handleDailyReport(last_time);
+  }
+
+  
+
+  if (TF.Wait(50000)) {
+    GasTempDO(last_time);
+  }
+
+}

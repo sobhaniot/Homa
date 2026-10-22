@@ -1,0 +1,144 @@
+
+// for spiffs set 64kbyte
+
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+#include <WebSocketsServer.h>
+#include <EEPROM.h>
+#include <ArduinoOTA.h>
+#include <PubSubClient.h>
+#include <RCSwitch.h>
+
+RCSwitch mySwitch = RCSwitch();
+
+String                G_SSID           = "";                              //for read eeprom
+String                G_PASSWORD       = "";                              //for read eeprom
+
+const char*           mySSID           = "HomeLamp";                      //for use in apwifi
+const char*           passwordAP       = "CHANGE_ME";               //for use in apwifi
+
+String                G_mqtt_server    = "";                                   //for mqtt broker url
+
+
+
+WiFiClient espClient;
+PubSubClient MQTTclient(espClient);
+
+ESP8266WebServer server(80);       // Create a webserver object that listens for HTTP request on port 80
+WebSocketsServer webSocket(81);    // create a websocket server on port 81
+////////////////////////////////////////////////////////////////////////define & declare value
+#define PortMQTT          1883
+#define PinRF             2
+
+#define OTAHostName       "HomeLamp"
+#define OTAPass           "nahbos"
+#define eepromSim         2
+#define D_eepromBroker    20
+#define D_eepromSSID      100
+#define D_eepromPASSWORD  200
+#define OnDelayVal        1200000
+#define OffDelayVal       5000
+
+
+const char*     subscribeTopic      = "/eleknow.com/nahbos5672730/home/Lamp";           //subscribe topic
+const char*     publishTopic        = "/eleknow.com/nahbos5672730/home/LampResult";     //publis topic
+bool            SimCondition        = false;                                            //use for led on/off condition
+byte            WhichLamp           = 0;                                                //for use in switch case, condition led rythm
+bool            flagDoSim           = false;
+const byte      SimArrayLamp[]      = {1, 1, 2, 2, 5, 5, 8, 8};
+byte            SimArrayIndex       = 0;
+unsigned long   OnOffDelay          = OnDelayVal;
+
+/////////////////////////////////////////////////////////////////////////Program Setup Fuction
+void setup() {
+
+  Serial.begin(115200);
+  delay(2000);
+
+  rfSetUp();
+  readEEPROM();
+  setupAPWifi();
+  setupWifi();
+  startWebSocket();
+  startServer();
+  setUpOTA();
+  mqttSetup();
+
+}
+unsigned long previousTime = millis();
+void loop() {
+  webSocket.loop();
+  server.handleClient();
+  
+  ArduinoOTA.handle();
+ 
+  ////////mqtt connect section
+  if (WiFi.status() == WL_CONNECTED && !MQTTclient.connected() && millis() % 60000 == 0) {
+    Serial.print("Attempting MQTT connection...");
+    // Attempt to connect
+    if (MQTTclient.connect("HomeLamp esp8266")) {
+      Serial.println("connected");
+      // Once connected, publish an announcement...
+      delay(50);
+      MQTTclient.publish(publishTopic, "{\"data\":0,\"condition\":\"HomeLamp connect to mqtt\"}");
+      // ... and resubscribe
+      MQTTclient.subscribe(subscribeTopic);
+    } else {
+      Serial.print("failed, rc=");
+      Serial.println(MQTTclient.state());
+    }
+  }
+
+  if (WiFi.status() == WL_CONNECTED && MQTTclient.connected()) {
+    MQTTclient.loop();
+  }
+
+
+  // handle Simulation
+  doSimulation(SimCondition);
+
+  /* Same switch as above, but using decimal code */
+  switch (WhichLamp) {
+    case 1: {                                            //condition for led off
+        mySwitch.send(6013906, 24); // button 1
+      } break;
+    case 2: {
+        mySwitch.send(6013905, 24); // button 2
+      } break;
+    case 3: {
+        mySwitch.send(6013907, 24); // button 3
+      } break;
+    case 4: {
+        mySwitch.send(6013908, 24); // button 4
+      } break;
+    case 5: {
+        mySwitch.send(6013919, 24); // button 5
+      } break;
+    case 6: {
+        mySwitch.send(6013911, 24); // button 6
+      } break;
+    case 7: {
+        mySwitch.send(6013906, 24); // button 1
+        delay(10);
+        mySwitch.send(6013905, 24); // button 2
+        delay(10);
+        mySwitch.send(6013907, 24); // button 3
+        delay(10);
+        mySwitch.send(6013908, 24); // button 4
+        delay(10);
+        mySwitch.send(6013919, 24); // button 5
+        delay(10);
+        mySwitch.send(6013911, 24); // button 6
+        delay(10);
+      } break;
+      case 8: {
+        mySwitch.send(6013906, 24); // button 1
+        delay(10);
+        mySwitch.send(6013905, 24); // button 2
+        delay(10);
+        mySwitch.send(6013919, 24); // button 5
+        delay(10);
+      } break;
+  }
+  WhichLamp = 0;
+}

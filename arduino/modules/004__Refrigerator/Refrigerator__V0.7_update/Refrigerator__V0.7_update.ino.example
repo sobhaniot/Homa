@@ -1,0 +1,166 @@
+//for declare var D mean define, G mean global ,
+#define DEBUG false // flag to turn on/off debugging
+#define SFPRINT(x)   Serial.print(F(x))
+#define SFPRINTLN(x) Serial.println(F(x))
+
+#if DEBUG
+const char* G_mySSID     = "RefrigeratorT";                   //for use in apwifi
+#else
+const char* G_mySSID     = "Refrigerator";                   //for use in apwifi
+#endif
+const char* G_passwordAP = "CHANGE_ME";           //for use in apwifi
+
+const char *G_subscribeTopic          = "/eleknow.com/nahbos5672730/home/refrigerator";        //subscribe topic
+const char *G_publishTopic            = "/eleknow.com/nahbos5672730/home/refrigeratorResult";  //publis topic
+
+//************************************************// PINS DEFINE
+// baraye inke hengam reset shodam payeha taghir voltazh nadan az in payeha estefade kardim
+// dar chon taghir voltazh baes mishavad ke dar mashin baz shavad
+#if DEBUG
+#define D_PIN_TEMPS           D6 
+#define D_PIN_CHECKDOOR       D5           // when door close pin read high, low for door open
+#define D_PIN_MOTOR           D1
+#define D_PIN_LEDIN           D2
+#else
+#define D_PIN_TEMPS           14
+#define D_PIN_CHECKDOOR       5           // when door close pin read high, low for door open
+#define D_PIN_MOTOR           4
+#define D_PIN_LEDIN           16
+#endif
+
+#if !DEBUG
+uint8_t     G_Waitting_Count          = 180;
+float       G_MinTemp                 = 13;
+float       G_MaxTemp                 = 14;
+#define     D_delayBeforeOn           20
+#define     D_tooHighTemp             22
+
+#else
+
+uint8_t     G_Waitting_Count          = 5;
+float       G_MinTemp                 = 25;
+float       G_MaxTemp                 = 28;
+#define     D_delayBeforeOn           1
+#define     D_tooHighTemp             29
+
+#endif
+
+
+byte        G_Flag_First_PlugIn       = 0;
+
+//*************************************************/ Door Define
+#define D_DoorClose           0
+#define D_DoorOpen            1
+#define D_OneMinOpen          2
+#define D_FiveMinOpen         3
+#define D_AlarmOff            4
+
+
+bool checkDoorFlag = true;
+byte DoorCondition = D_DoorClose;
+
+//FirebaseESP8266.h must be included before ESP8266WiFi.h
+#include "a_HTML.h"
+#include <ESP8266WiFi.h>
+#include <ArduinoJson.h>
+#include <_MyDS18B20.h>        // bara dama hatman bayad pin morede nazar ba in esm define shavad  ======>   D_PIN_TEMPS
+#include "My_LCD.h"
+#include <_CommonFunc.h>
+#include <_MyMQTT.h>
+#include <Ticker.h>
+#include <_MyTimerCounter.h>
+
+TimerCounter T, T_Debounce;
+
+Ticker TickerDoor, TickerAllDo, TickerMotor, TickerAlarm;
+
+StaticJsonDocument<150> Json;
+
+////////////////////////////////////////////////////////////////////////define & declare value
+// 150 byte reserve for ssid and pasword and broker
+
+constexpr int D_eepromMinTemp[]          = {150,10};
+constexpr int D_eepromMaxTemp[]          = {160,10};
+
+//#define Serial             if(DEBUG)Serial
+
+float       G_TempIn                  = 0;
+float       G_TempOut                 = 0;
+int         G_OnTime                  = 0;
+int         G_OffTime                 = 0;
+
+///////////////////////////////////////////////////////////////////////Program Setup Fuction
+void setup() {
+
+  // prepare GPIO's
+  pinMode(D_PIN_LEDIN, OUTPUT);
+  pinMode(D_PIN_CHECKDOOR, INPUT_PULLUP);
+  pinMode(D_PIN_MOTOR, OUTPUT);
+
+  digitalWrite(D_PIN_LEDIN, LOW);
+  digitalWrite(D_PIN_MOTOR, LOW);
+
+  Serial.begin(115200);
+  delay(50);
+
+
+  CF_EEPROM_SetUp(256);
+  EEPROM_read_param();
+  My_setUpDS18B20();
+  CF_setupAPWifi();
+  CF_startServer();
+  CF_startWebSocket();
+  CF_MQTTSetup(256);
+  CF_mdnsSetup();
+
+  setUpLCD();
+  WellComing();
+
+  TickerAllDo.attach(1, WaitCounting);
+}
+
+//////////////////////////////////////////////////////////////////////////////Loop Function
+void loop() {
+  MDNS.update();
+  webSocket.loop();
+
+  ////////wifi mqtt connect section
+  CF_WifiLoop(); 
+  CF_MQTTLoop(); 
+
+  CheckDoor();
+  checkAlarm();
+
+  switch (G_Flag_First_PlugIn) {
+    case 1:
+      TickerAllDo.attach_ms(50, RemoveWellComing);
+      SFPRINTLN("RemoveWellComing");
+      G_Flag_First_PlugIn = 2;
+      break;
+
+    case 3:
+      TickerAllDo.attach(10, [](){G_Flag_First_PlugIn = 4;});
+      G_Flag_First_PlugIn = 4;
+      break;
+
+    case 4:
+      #if DEBUG
+      G_TempIn = My_readTemp(0);
+      #else
+      G_TempIn = My_readTemp(1);
+      #endif
+      G_TempOut = My_readTemp(0);
+
+      refrigeratorDO();
+
+      CheckTempHigh();
+
+      showOnLCD(G_TempIn, G_TempOut, G_OnTime, G_OffTime);
+      SFPRINT("AllDo");
+      SFPRINT("     ");
+      Serial.println(DoorCondition);
+      G_Flag_First_PlugIn = 5;
+      break;
+  }
+ 
+}

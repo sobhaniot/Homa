@@ -1,0 +1,118 @@
+//for declare var D mean define, G mean global ,
+#define DEBUG true // flag to turn on/off debugging
+
+//FirebaseESP8266.h must be included before ESP8266WiFi.h
+#include "FirebaseESP8266.h"
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+#include <EEPROM.h>
+#include <ArduinoOTA.h>
+#include <PubSubClient.h>
+
+
+String _SSID = "";                                    //for read eeprom
+String _PASSWORD = "";                                //for read eeprom
+
+const char* mySSID = "UPS_Flasher";                   //for use in apwifi
+const char* passwordAP = "CHANGE_ME";           //for use in apwifi
+
+String mqtt_server = "";
+
+#define FIREBASE_FCM_SERVER_KEY "CHANGE_ME"
+String FIREBASE_FCM_DEVICE_TOKEN_1 = "";
+String FIREBASE_FCM_DEVICE_TOKEN_2 = "";
+
+
+FirebaseData FBNotification;
+
+
+WiFiClient espClient;
+PubSubClient MQTTclient(espClient);
+
+ESP8266WebServer server(80);    // Create a webserver object that listens for HTTP request on port 80
+////////////////////////////////////////////////////////////////////////define & declare value
+#define PortMQTT           1883
+
+#define Serial             if(DEBUG)Serial
+
+#define OTAHostName        "UPS_Flasher"
+#define OTAPass            "nahbos"
+#define rythmLong          50
+#define eepromOption       0
+#define eepromFlagToken    2
+#define eepromBroker       5
+#define eepromFirstToken   50
+#define eepromSecondToken  250
+
+// C = Camera L = Lamp M = Modem ____ 2 = On 1 = Off
+#define powerGoneCML       222
+#define powerGoneC         211
+#define powerGoneM         121
+#define powerGoneL         112
+#define powerGoneCM        221
+#define powerGoneCL        212
+#define powerGoneML        122
+
+#define OFF                0
+#define ON                 1
+#define FLASHER            2
+#define FADE               3
+#define POWERGONE          5
+
+#define PinLED              0
+#define relayModemPin       1
+#define CheckPin            2
+#define relayCameraPin      3
+
+const char *subscribeTopic    = "/eleknow.com/nahbos5672730/home/flasher";        //subscribe topic
+const char *publishTopic      = "/eleknow.com/nahbos5672730/home/flasherResult";  //publis topic
+unsigned int rythm[rythmLong] = {1000, 2000};
+bool Condition                = true;                                             //use for led on/off condition
+byte OnOff                    = 0;                                                //for use in switch case, condition led rythm
+byte OnOffSwitch              = 0;
+byte k                        = 0;
+bool LoginSuccess             = false;                                            //when connect to wifi and suddenly disconnect and try to reconnect
+bool flagPowerGone            = false;
+byte conditionPowerGone       = powerGoneML;                                      // when power gone which condition do
+byte flagWhichTokenSave       = 0;                                                // when save token with this flag find write to which one
+
+/////////////////////////////////////////////////////////////////////////Program Setup Fuction
+void setup() {
+
+  // prepare GPIO's
+  pinMode(PinLED, OUTPUT);
+  pinMode(CheckPin, INPUT);
+  pinMode(relayModemPin, OUTPUT);
+  pinMode(relayCameraPin, OUTPUT);
+
+  digitalWrite(PinLED, HIGH);
+  digitalWrite(relayModemPin, HIGH);
+  digitalWrite(relayCameraPin, HIGH);
+
+  //  Serial.begin(115200);
+  delay(50);
+
+  readEEPROM();
+  setupAPWifi();
+  setupWifi();
+  startServer();
+  setUpOTA();
+  mqttSetup();
+  FirebaseSetup();
+}
+
+unsigned long previousTime = millis();
+//////////////////////////////////////////////////////////////////////////////Loop Function
+void loop() {
+  server.handleClient();
+  ArduinoOTA.handle();
+
+  ////////mqtt connect section
+  MQTTConnecting();
+
+
+  PowerConditionReport();
+  
+  LampDo();
+  
+}

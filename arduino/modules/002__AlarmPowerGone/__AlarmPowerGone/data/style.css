@@ -1,0 +1,177 @@
+body {
+    text-align: center;
+    background : #bababa;
+    width: 100%;
+    max-width: 550px;
+    margin: 10px auto;
+    font-family: "Arial Rounded MT Bold";
+}
+
+.slide{
+    height: 80px;
+    position: relative;
+    max-width: 500px;
+    margin: 10px auto;
+    background: #6c5ce7;
+    padding: 10px;
+    border-radius: 15px;
+    line-height: 80px;
+    cursor: pointer;
+    box-shadow:2px 2px 2px #4c4c4d,-2px 2px 2px #4c4c4d;
+
+}
+.slide>h1{
+    margin:0;
+}
+.slide:active{
+    background: rgba(108, 92, 231, 0.68);
+    box-shadow: inset -2px -2px 2px #fff, inset 2px -2px 2px #fff ;
+}
+.slide span {
+    z-index: 999;
+    height: 4px;
+    position: absolute;
+    margin:1px;
+    width: 4px;
+    border-radius: 50%;
+    background: #3e3e3e;
+}
+
+.slide span:nth-child(2) {
+    left: 10px;
+    top: 40%;
+}
+
+.slide span:nth-child(3) {
+
+    right: 10px;
+    top: 40%;
+}
+
+.slide span:nth-child(4) {
+    left: 10px;
+    bottom: 40%;
+}
+
+.slide span:nth-child(5) {
+    right: 10px;
+    bottom: 40%;
+}
+
+#information{
+    display: none;
+}
+#information h1{
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #8c7ae6;
+    margin-bottom: 0;
+}
+#information p{
+    border-radius: 5px;
+    margin: 0;
+    background-color: rgba(157, 140, 234, 0.5);
+}
+#information p:nth-child(odd){
+        background-color: #9d8cea;
+}
+
+
+.toggle{
+    display: block !important;
+}
+
+
+#num{
+    color: #434343;
+}
+
+#ssidslide{
+    display: none;
+}
+#ssidslide>div{
+    display: grid;
+    grid-template-columns:3fr 7fr ;
+    width: 90%;
+    margin: 0 auto;
+}
+#ssidslide>div label{
+    background:#9c88ff;
+    padding: 10px;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    margin: 10px 0 10px 10px;
+    font-size: 18px;
+    color: #ffffff;
+}
+@media(max-width: 900px){
+    #ssidslide>div label{
+        font-size: 10px;
+    }
+}
+.formbox input{
+    width: calc(100% - 10px);
+    box-sizing: border-box;
+    margin: 10px 10px 10px 0;
+    height: 40px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background: rgba(156, 136, 255, 0.6);
+    font-size: 20px;
+}
+.formbox input:focus{
+    background: rgba(88, 255, 212, 0.28);
+}
+.timeBox{
+    display: inline-block;
+}
+#timeSlide{
+    display: none;
+}
+.timeBox input, .timeBox select{
+    width: 50px;
+    box-sizing: border-box;
+    margin: 10px 10px 10px 0;
+    height: 40px;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    background: rgba(156, 136, 255, 0.6);
+    font-size: 20px;
+    text-align: center;
+}
+#timeSlide label{
+    font-size:14px ;
+}
+.timeBox select{
+    width: 75px;
+}
+#ssidslide>input , #timeSlide>input{
+    width: 80%;
+    height: 40px;
+    background:#8c7ae6 ;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 20px;
+    cursor:pointer;
+
+}
+#ssidslide>input:hover , #timeSlide>input:hover{
+    background: rgb(102, 93, 185);
+}
+#ssidslide>input:active , #timeSlide>input:active{
+    background: rgba(140, 122, 230, 0.6);
+}
+
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
+}
+

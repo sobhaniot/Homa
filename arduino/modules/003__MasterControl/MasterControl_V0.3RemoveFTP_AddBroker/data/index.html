@@ -1,0 +1,282 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Home Lights</title>
+    <style>
+        body {
+            text-align: center;
+            background : #3495ba;
+            width: 100%;
+            max-width: 550px;
+            margin: 10px auto;
+            font-family: "Arial Rounded MT Bold";
+        }
+        body>div{
+            padding: 5px 0 30px 0;
+            background-color: rgba(255, 255, 255, 0.30);
+            border-radius: 15px;
+            border: 1px solid white;
+        }
+        h1{
+            font-size: 18px;
+        }
+        .formWrapper>div{
+            display: grid;
+            grid-template-columns:3fr 7fr ;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .formWrapper>div label{
+            background: #74b9ff;
+            padding: 10px;
+            border-bottom-left-radius: 5px;
+            border-top-left-radius: 5px;
+            margin: 10px 0 10px 10px;
+            font-size: 99%;
+            color: #322c27;
+        }
+
+        .formbox input{
+            width: calc(100% - 10px);
+            box-sizing: border-box;
+            margin: 10px 10px 10px 0;
+            height: 40px;
+            border-bottom-right-radius: 5px;
+            border-top-right-radius: 5px;
+            background: rgba(79, 255, 242, 0.6);
+            font-size: 20px;
+        }
+        .formbox input:focus{
+            background: rgba(88, 255, 212, 0.28);
+        }
+        .formWrapper>input{
+            width: 80%;
+            height: 40px;
+            background: #6c5ce7;
+            border-radius: 8px;
+            color: #fff;
+            font-size: 20px;
+            cursor:pointer;
+
+        }
+        .formWrapper>input:hover{
+            background: rgb(102, 93, 185);
+        }
+        .formWrapper>input:active{
+            background: rgba(140, 122, 230, 0.6);
+        }
+
+
+        #templateSlide>div{
+            display: grid;
+            grid-gap: 5px;
+            grid-template-columns:1fr 1fr 1fr 1fr ;
+            width: 90%;
+            margin: 0 auto;
+        }
+        .templateBox{
+            width: 100%;
+            height: 60px;
+            background: #a4d4ff91;
+            border-radius: 10px;
+            box-shadow: inset 1px 1px #fff,inset -1px 1px #fff,inset 1px -1px #fff,inset -1px -1px #fff,
+            1px 1px 1px #464646,-1px 1px 1px #464646;
+            cursor: pointer;
+            position: relative;
+            line-height: 60px;
+        }
+        .templateBox:after{
+            content: '';
+            height: 3px;
+            width: 3px;
+            background: #322c27;
+            border-radius: 50%;
+            position: absolute;
+            top: 70%;
+            left: 40%;
+        }
+        .templateBox:before{
+            content: '';
+            height: 3px;
+            width: 3px;
+            background: #322c27;
+            border-radius: 50%;
+            position: absolute;
+            top: 70%;
+            right: 40%;
+        }
+        .templateBox:active{
+            background: #47423c;
+            box-shadow: inset 1px 1px #a9a9a9,
+            inset -1px 1px #a9a9a9,
+            inset 1px -1px #a9a9a9,
+            inset -1px -1px #a9a9a9,
+            1px 1px 1px #e9e9e9,
+            -1px 1px 1px #e9e9e9;
+            color: #fff;
+        }
+        .templateBox:active:after{
+            background: #e3d6b4;
+        }
+        .templateBox:active:before{
+            background: #e3d6b4;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <h1>On/Off Home Lamp</h1>
+    <div id="templateSlide">
+        <div>
+            <div class="templateBox">
+                Lamp 1
+            </div>
+            <div class="templateBox">
+                Lamp 2
+            </div>
+            <div class="templateBox">
+                Lamp 3
+            </div>
+            <div class="templateBox">
+                Lamp 4
+            </div>
+            <div class="templateBox">
+                Lamp 5
+            </div>
+            <div class="templateBox">
+                Lamp 6
+            </div>
+            <div class="templateBox">
+                All On/Off
+            </div>
+            <div id="Sim1" class="templateBox">
+                Simulation
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <h1>Enter SSID and PassWord Of Local WiFi</h1>
+    <form method="POST">
+        <div class="formWrapper">
+            <div>
+                <label for="ssidbox">SSID : </label>
+                <div class="formbox">
+                    <input id="ssidbox" type="text" name="SSIDName">
+                </div>
+                <label for="password">PassWord : </label>
+                <div class="formbox">
+                    <input id="password" type="text" name="Password">
+                </div>
+            </div>
+            <input type="submit" value="Submit">
+        </div>
+    </form>
+    <form method="POST">
+        <div class="formWrapper">
+            <div>
+                <label for="brokerURL">MQTT : </label>
+                <div class="formbox">
+                    <input id="brokerURL" type="text" name="Broker">
+                </div>
+            </div>
+            <input type="submit" value="Save">
+        </div>
+    </form>
+</div>
+
+</body>
+<script>
+    var Sim1 = document.getElementById('Sim1');
+    ////////////////////////////////////////////////////////////////////////declare websocket class
+    var connection;
+    function startWebSocket(){
+        connection = new WebSocket('ws://' + window.location.hostname +':81/' , ['arduino']);
+        // connection = new WebSocket('ws://' + '192.168.1.3' +':81/' , ['arduino']);
+
+        connection.onopen = function () {
+            console.log('Connect ' + new Date());
+            connection.send("Info");
+        };
+        connection.onerror = function (error) {
+            console.log('WebSocket Error ', error);
+        };
+
+        connection.onmessage = function (e) {
+            let dataJson = JSON.parse(e.data);
+            console.log('ServerJson: ', dataJson);
+
+            if(dataJson.condition == "Simulation"){
+                if(dataJson.data == 1){
+                    Sim1.style.background = "#34e720";
+                }
+                if (dataJson.data == 0){
+                    Sim1.style.background = "#a4d4ff91";
+                }
+            }
+        };
+        connection.onclose = function () {
+            console.log('WebSocket connection closed');
+            setTimeout(startWebSocket,15000);
+        };
+
+    };
+    startWebSocket();
+
+    /////////////////////////////////////////////////////////////////////Template Section
+
+    var HLBTN = document.querySelectorAll(".templateBox");
+    HLBTN.forEach((v,i)=>{
+        v.addEventListener("click",()=>{
+            sendLight(i);
+        })
+
+    });
+    function sendLight(i){
+        switch (i) {
+            case 0:
+                Condition = "lamp";
+                sendDataToESP(Condition,1);
+                break;
+            case 1:
+                Condition = "lamp";
+                sendDataToESP(Condition,2);
+                break;
+            case 2:
+                Condition = "lamp";
+                sendDataToESP(Condition,3);
+                break;
+            case 3:
+                Condition = "lamp";
+                sendDataToESP(Condition,4);
+                break;
+            case 4:
+                Condition = "lamp";
+                sendDataToESP(Condition,5);
+                break;
+            case 5:
+                Condition = "lamp";
+                sendDataToESP(Condition,6);
+                break;
+            case 6:
+                Condition = "lamp";
+                sendDataToESP(Condition,7);
+                break;
+            case 7:
+                Condition = "Sim";
+                sendDataToESP(Condition,1);
+                break;
+
+        }
+    }
+    function sendDataToESP(cond,t){
+        console.log(cond + "[" + t + "]");
+
+        connection.send(cond + "[" + t + "]");
+    }
+</script>
+
+</html>

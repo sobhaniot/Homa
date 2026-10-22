@@ -1,0 +1,17 @@
+def primaryMirror = 'https://repo.huaweicloud.com/repository/maven/'
+def publicMirror = 'https://mirrors.cloud.tencent.com/nexus/repository/maven-public/'
+def googleMirror = 'https://redirector.gvt1.com/edgedl/android/maven2/'
+
+gradle.beforeProject { project ->
+    project.buildscript.repositories {
+        maven { url primaryMirror }
+        maven { url publicMirror }
+        maven { url googleMirror }
+    }
+
+    project.repositories {
+        maven { url primaryMirror }
+        maven { url publicMirror }
+        maven { url googleMirror }
+    }
+}

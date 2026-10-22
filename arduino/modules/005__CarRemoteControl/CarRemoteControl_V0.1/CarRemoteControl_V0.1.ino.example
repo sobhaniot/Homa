@@ -1,0 +1,88 @@
+//All Code = 72 / 68 / 66 / 65 / 76 / 73 / 74 / 70 / 93 / 67 / 78 / 71 / 49 / 77 / 75 / 48 / 79 / 46 / 69 / 14 /
+#include <ESP8266WiFi.h>
+#include <ESP8266WebServer.h>
+#include <WebSocketsServer.h>
+#include <EEPROM.h>
+#include <ArduinoOTA.h>
+#include <PubSubClient.h>
+#include <RCSwitch.h>
+
+RCSwitch mySwitch = RCSwitch();
+
+String                _SSID           = "";                              //for read eeprom
+String                _PASSWORD       = "";                              //for read eeprom
+
+const char*           mySSID          = "CarControl";                      //for use in apwifi
+const char*           passwordAP      = "CHANGE_ME";               //for use in apwifi
+
+String                mqtt_server     = "";                                   //for mqtt broker url
+
+
+WiFiClient espClient;
+PubSubClient MQTTclient(espClient);
+
+ESP8266WebServer server(80);       // Create a webserver object that listens for HTTP request on port 80
+WebSocketsServer webSocket(81);    // create a websocket server on port 81
+////////////////////////////////////////////////////////////////////////define & declare value
+#define PortMQTT          1883
+
+#define PinRF             4
+#define PinClose          14
+#define PinOpen           16
+#define PinTrunk          12
+
+#define OpenCode          72
+#define CloseCode         68
+#define TrunkCode         65
+
+#define OTAHostName       "CarControl"
+#define OTAPass           "nahbos"
+#define eepromSim         2
+#define eepromBroker      5
+
+
+const char*     subscribeTopic      = "/eleknow.com/nahbos5672730/Car";           //subscribe topic
+const char*     publishTopic        = "/eleknow.com/nahbos5672730/CarResult";     //publis topic
+byte            all_remote_code[20];
+unsigned long   previousCOTime        = 0; 
+unsigned long   previousTrunkTime     = 0; 
+
+bool            flagMillis          = false;
+bool            flagOpen            = false;  
+bool            flagClose           = false;  
+bool            flagTrunk           = false;  
+/////////////////////////////////////////////////////////////////////////Program Setup Fuction
+void setup() {
+
+  Serial.begin(115200);
+  mySwitch.enableReceive(PinRF);
+  Serial.println("Shoro Shod");
+  
+  pinMode(PinClose, OUTPUT);
+  pinMode(PinOpen, OUTPUT);
+  pinMode(PinTrunk, OUTPUT);
+  
+  digitalWrite(PinClose, LOW);
+  digitalWrite(PinOpen, LOW);
+  digitalWrite(PinTrunk, LOW);
+
+  readEEPROM();
+  setupAPWifi();
+  setupWifi();
+  startServer();
+  setUpOTA();
+  mqttSetup();
+
+}
+
+void loop() {
+
+  server.handleClient();
+
+  ArduinoOTA.handle();
+
+  ////////mqtt connect section
+  mqttConnection();
+
+  remoteDo();
+}
